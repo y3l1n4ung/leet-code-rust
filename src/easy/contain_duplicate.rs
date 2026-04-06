@@ -1,3 +1,5 @@
+use std::collections::{HashMap, HashSet};
+
 /// [217] Contains Duplicate
 /// Difficulty: Easy
 /// Topics: Array, Hash Table, Sorting
@@ -12,7 +14,9 @@ struct Solution;
 
 impl Solution {
     pub fn contains_duplicate(nums: Vec<i32>) -> bool {
-        todo!()
+        let len = nums.len();
+        let set: HashSet<i32> = HashSet::from_iter(nums);
+        set.len() != len
     }
 }
 

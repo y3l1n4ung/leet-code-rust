@@ -3,7 +3,6 @@
 /// Tags: Base62, TinyURL, Redirection
 ///
 /// Link: https://bytebytego.com/courses/system-design-interview/design-a-url-shortener
-
 use std::collections::HashMap;
 
 pub struct TinyUrl {
@@ -30,7 +29,7 @@ impl TinyUrl {
     }
 
     /// Helper function to encode a number to Base62
-    fn encode_base62(mut num: u64) -> String {
+    fn encode_base62(num: u64) -> String {
         todo!("Implement the Base62 encoding algorithm")
     }
 }
@@ -43,7 +42,7 @@ mod tests {
     fn test_shorten_and_resolve() {
         let mut shortener = TinyUrl::new();
         let long_url = "https://www.rust-lang.org/".to_string();
-        
+
         let short_url = shortener.shorten(long_url.clone());
         assert!(!short_url.is_empty());
         assert_eq!(shortener.resolve(&short_url), Some(long_url));
@@ -54,10 +53,10 @@ mod tests {
         let mut shortener = TinyUrl::new();
         let url1 = "https://google.com".to_string();
         let url2 = "https://github.com".to_string();
-        
+
         let s1 = shortener.shorten(url1.clone());
         let s2 = shortener.shorten(url2.clone());
-        
+
         assert_ne!(s1, s2);
         assert_eq!(shortener.resolve(&s1), Some(url1));
         assert_eq!(shortener.resolve(&s2), Some(url2));
