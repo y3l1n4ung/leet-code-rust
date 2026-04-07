@@ -1,3 +1,5 @@
+use std::collections::HashMap;
+
 /// [242] Valid Anagram
 /// Difficulty: Easy
 /// Topics: Hash Table, String, Sorting
@@ -7,13 +9,20 @@
 ///
 /// Link: https://leetcode.com/problems/valid-anagram/
 
-
 struct Solution;
 
 impl Solution {
-    
     pub fn is_anagram(s: String, t: String) -> bool {
-        todo!()
+        // if not found in key , + , for s , - for t.
+        let mut map: HashMap<char, i32> = HashMap::new();
+        // { 'a' : 3}
+        for char in s.chars() {
+            *map.entry(char).or_insert(0) += 1
+        }
+        for char in t.chars() {
+            *map.entry(char).or_insert(0) -= 1;
+        }
+        map.values().all(|f| *f == 0)
     }
 }
 
