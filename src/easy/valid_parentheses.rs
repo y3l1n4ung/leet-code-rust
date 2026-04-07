@@ -1,3 +1,5 @@
+use std::collections::HashMap;
+
 /// [20] Valid Parentheses
 /// Difficulty: Easy
 /// Topics: String, Stack
@@ -15,7 +17,23 @@ struct Solution;
 
 impl Solution {
     pub fn is_valid(s: String) -> bool {
-        todo!()
+        let opening = "([{";
+        let closing = ")]}";
+        let map: HashMap<char, char> = HashMap::from([('(', ')'), ('{', '}'), ('[', ']')]);
+        let mut stack: Vec<char> = Vec::new();
+        for char in s.chars() {
+            if opening.contains(char) {
+                stack.push(char);
+            } else {
+                if stack.is_empty() {
+                    return false;
+                }
+                let opening = stack.pop().unwrap();
+                let closing = *map.get(&opening).unwrap();
+                return closing == char;
+            }
+        }
+        false
     }
 }
 
@@ -30,7 +48,7 @@ mod tests {
 
     #[test]
     fn test_2() {
-        assert_eq!(Solution::is_valid("()[]{}".to_string()), true);
+        assert_eq!(Solution::is_valid("([]{})".to_string()), true);
     }
 
     #[test]
