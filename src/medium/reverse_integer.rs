@@ -10,8 +10,18 @@
 struct Solution;
 
 impl Solution {
-    pub fn reverse(x: i32) -> i32 {
-        todo!()
+    pub fn reverse(mut x: i32) -> i32 {
+        let mut rev: i32 = 0;
+        while x != 0 {
+            let r = x % 10; // reminder
+            x /= 10;
+            // rev = (rev * 10) + r
+            match rev.checked_mul(10).and_then(|f| f.checked_add(r)) {
+                Some(result) => rev = result,
+                None => return 0,
+            }
+        }
+        rev
     }
 }
 
@@ -22,6 +32,16 @@ mod tests {
     #[test]
     fn test_1() {
         assert_eq!(Solution::reverse(123), 321);
+        /*
+        x = 123
+        result =0
+
+        while x != 0{
+            p = 123 % 10
+            result = result * 10 + p
+
+        }
+        */
     }
 
     #[test]
@@ -31,6 +51,10 @@ mod tests {
 
     #[test]
     fn test_3() {
-        assert_eq!(Solution::reverse(120), 21);
+        assert_eq!(Solution::reverse(123456789), 987654321);
+    }
+    #[test]
+    fn test_4() {
+        assert_eq!(Solution::reverse(2147483647), 0);
     }
 }
