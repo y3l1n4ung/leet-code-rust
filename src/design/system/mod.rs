@@ -7,6 +7,10 @@ pub mod consistent_hashing;
 pub mod message_queue;
 pub mod search_autocomplete;
 pub mod google_drive;
+pub mod hit_counter;
+pub mod underground_system;
+pub mod logger_system;
+pub mod cache_with_expiration;
 
 // Object-Oriented and Data Structure Design
 pub mod browser_history;
