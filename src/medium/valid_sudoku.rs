@@ -1,3 +1,5 @@
+use std::collections::HashSet;
+
 /// [36] Valid Sudoku
 /// Difficulty: Medium
 /// Topics: Array, Hash Table, Matrix
@@ -15,7 +17,31 @@ struct Solution;
 impl Solution {
     #![allow(unused_variables)]
     pub fn is_valid_sudoku(board: Vec<Vec<char>>) -> bool {
-        todo!()
+        let mut rows: Vec<HashSet<char>> = vec![HashSet::new(); 9];
+        let mut columns: Vec<HashSet<char>> = vec![HashSet::new(); 9];
+
+        let mut boxes: Vec<HashSet<char>> = vec![HashSet::new(); 9];
+        for r in 0..9 {
+            for c in 0..9 {
+                let val = board[r][c];
+                if val == '.' {
+                    continue;
+                }
+
+                let box_index = (r / 3) * 3 + (c / 3);
+
+                if rows[r].contains(&val)
+                    || columns[c].contains(&val)
+                    || boxes[box_index].contains(&val)
+                {
+                    return false;
+                }
+                rows[r].insert(val);
+                columns[c].insert(val);
+                boxes[box_index].insert(board[r][c]);
+            }
+        }
+        true
     }
 }
 
