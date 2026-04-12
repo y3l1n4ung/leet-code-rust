@@ -42,14 +42,68 @@ mod tests {
     fn test_1() {
         // Input: head = [1,2,3,4,5], k = 2
         // Output: [2,1,4,3,5]
-        todo!();
+        let head = Some(Box::new(ListNode {
+            val: 1,
+            next: Some(Box::new(ListNode {
+                val: 2,
+                next: Some(Box::new(ListNode {
+                    val: 3,
+                    next: Some(Box::new(ListNode {
+                        val: 4,
+                        next: Some(Box::new(ListNode::new(5))),
+                    })),
+                })),
+            })),
+        }));
+        let result = Solution::reverse_k_group(head, 2);
+        let expected = Some(Box::new(ListNode {
+            val: 2,
+            next: Some(Box::new(ListNode {
+                val: 1,
+                next: Some(Box::new(ListNode {
+                    val: 4,
+                    next: Some(Box::new(ListNode {
+                        val: 3,
+                        next: Some(Box::new(ListNode::new(5))),
+                    })),
+                })),
+            })),
+        }));
+        assert_eq!(result, expected);
     }
 
     #[test]
     fn test_2() {
         // Input: head = [1,2,3,4,5], k = 3
         // Output: [3,2,1,4,5]
-        todo!();
+        let head = Some(Box::new(ListNode {
+            val: 1,
+            next: Some(Box::new(ListNode {
+                val: 2,
+                next: Some(Box::new(ListNode {
+                    val: 3,
+                    next: Some(Box::new(ListNode {
+                        val: 4,
+                        next: Some(Box::new(ListNode::new(5))),
+                    })),
+                })),
+            })),
+        }));
+        let result = Solution::reverse_k_group(head, 3);
+        let expected = Some(Box::new(ListNode {
+            val: 3,
+            next: Some(Box::new(ListNode {
+                val: 2,
+                next: Some(Box::new(ListNode {
+                    val: 1,
+                    next: Some(Box::new(ListNode {
+                        val: 4,
+                        next: Some(Box::new(ListNode::new(5))),
+                    })),
+                })),
+            })),
+        }));
+        assert_eq!(result, expected);
     }
 
     #[test]

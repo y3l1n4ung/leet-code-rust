@@ -41,24 +41,47 @@ impl Solution {
 mod tests {
     use super::*;
 
+    fn node(val: i32) -> Option<Rc<RefCell<TreeNode>>> {
+        Some(Rc::new(RefCell::new(TreeNode::new(val))))
+    }
+
     #[test]
     fn test_1() {
         // Input: root = [3,1,4,null,2], k = 1
         // Output: 1
-        todo!();
+        let root = node(3);
+        let n1 = node(1);
+        if let Some(ref n) = n1 { n.borrow_mut().right = node(2); }
+        if let Some(ref r) = root {
+            r.borrow_mut().left = n1;
+            r.borrow_mut().right = node(4);
+        }
+        assert_eq!(Solution::kth_smallest(root, 1), 1);
     }
 
     #[test]
     fn test_2() {
         // Input: root = [5,3,6,2,4,null,null,1], k = 3
         // Output: 3
-        todo!();
+        let root = node(5);
+        let n3 = node(3);
+        let n2 = node(2);
+        if let Some(ref n) = n2 { n.borrow_mut().left = node(1); }
+        if let Some(ref n) = n3 {
+            n.borrow_mut().left = n2;
+            n.borrow_mut().right = node(4);
+        }
+        if let Some(ref r) = root {
+            r.borrow_mut().left = n3;
+            r.borrow_mut().right = node(6);
+        }
+        assert_eq!(Solution::kth_smallest(root, 3), 3);
     }
 
     #[test]
     fn test_3() {
         // Input: root = [1], k = 1
         // Output: 1
-        todo!();
+        assert_eq!(Solution::kth_smallest(node(1), 1), 1);
     }
 }

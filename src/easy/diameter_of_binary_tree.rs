@@ -43,18 +43,36 @@ impl Solution {
 mod tests {
     use super::*;
 
+    fn node(val: i32) -> Option<Rc<RefCell<TreeNode>>> {
+        Some(Rc::new(RefCell::new(TreeNode::new(val))))
+    }
+
     #[test]
     fn test_1() {
         // Input: root = [1,2,3,4,5]
-        // Output: 3
-        todo!();
+        let root = node(1);
+        let n2 = node(2);
+        let n3 = node(3);
+        let n4 = node(4);
+        let n5 = node(5);
+
+        if let Some(ref n2_node) = n2 {
+            n2_node.borrow_mut().left = n4;
+            n2_node.borrow_mut().right = n5;
+        }
+        if let Some(ref r) = root {
+            r.borrow_mut().left = n2;
+            r.borrow_mut().right = n3;
+        }
+        assert_eq!(Solution::diameter_of_binary_tree(root), 3);
     }
 
     #[test]
     fn test_2() {
         // Input: root = [1,2]
-        // Output: 1
-        todo!();
+        let root = node(1);
+        root.as_ref().unwrap().borrow_mut().left = node(2);
+        assert_eq!(Solution::diameter_of_binary_tree(root), 1);
     }
 
     #[test]

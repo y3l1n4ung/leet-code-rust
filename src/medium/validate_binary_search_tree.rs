@@ -45,18 +45,37 @@ impl Solution {
 mod tests {
     use super::*;
 
+    fn node(val: i32) -> Option<Rc<RefCell<TreeNode>>> {
+        Some(Rc::new(RefCell::new(TreeNode::new(val))))
+    }
+
     #[test]
     fn test_1() {
         // Input: root = [2,1,3]
         // Output: true
-        todo!();
+        let root = node(2);
+        if let Some(ref r) = root {
+            r.borrow_mut().left = node(1);
+            r.borrow_mut().right = node(3);
+        }
+        assert_eq!(Solution::is_valid_bst(root), true);
     }
 
     #[test]
     fn test_2() {
         // Input: root = [5,1,4,null,null,3,6]
         // Output: false
-        todo!();
+        let root = node(5);
+        let n4 = node(4);
+        if let Some(ref n) = n4 {
+            n.borrow_mut().left = node(3);
+            n.borrow_mut().right = node(6);
+        }
+        if let Some(ref r) = root {
+            r.borrow_mut().left = node(1);
+            r.borrow_mut().right = n4;
+        }
+        assert_eq!(Solution::is_valid_bst(root), false);
     }
 
     #[test]

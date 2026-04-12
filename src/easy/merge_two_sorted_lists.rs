@@ -38,24 +38,51 @@ impl Solution {
 mod tests {
     use super::*;
 
+    fn to_list(vec: Vec<i32>) -> Option<Box<ListNode>> {
+        let mut head = None;
+        for &val in vec.iter().rev() {
+            let mut node = ListNode::new(val);
+            node.next = head;
+            head = Some(Box::new(node));
+        }
+        head
+    }
+
+    fn to_vec(mut head: Option<Box<ListNode>>) -> Vec<i32> {
+        let mut vec = Vec::new();
+        while let Some(node) = head {
+            vec.push(node.val);
+            head = node.next;
+        }
+        vec
+    }
+
     #[test]
     fn test_1() {
-        // Input: list1 = [1,2,4], list2 = [1,3,4]
-        // Output: [1,1,2,3,4,4]
-        todo!();
+        let l1 = to_list(vec![1, 2, 4]);
+        let l2 = to_list(vec![1, 3, 4]);
+        let output = Solution::merge_two_lists(l1, l2);
+        assert_eq!(to_vec(output), vec![1, 1, 2, 3, 4, 4]);
     }
 
     #[test]
     fn test_2() {
-        // Input: list1 = [], list2 = []
-        // Output: []
         assert_eq!(Solution::merge_two_lists(None, None), None);
     }
 
     #[test]
     fn test_3() {
-        // Input: list1 = [], list2 = [0]
-        // Output: [0]
-        todo!();
+        let l1 = None;
+        let l2 = to_list(vec![0]);
+        let output = Solution::merge_two_lists(l1, l2);
+        assert_eq!(to_vec(output), vec![0]);
+    }
+
+    #[test]
+    fn test_unbalanced_lists() {
+        let l1 = to_list(vec![1, 2, 3]);
+        let l2 = to_list(vec![4, 5, 6]);
+        let output = Solution::merge_two_lists(l1, l2);
+        assert_eq!(to_vec(output), vec![1, 2, 3, 4, 5, 6]);
     }
 }

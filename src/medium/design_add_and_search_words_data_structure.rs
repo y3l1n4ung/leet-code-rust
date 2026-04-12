@@ -35,14 +35,13 @@ mod tests {
 
     #[test]
     fn test_1() {
-        // let dict = WordDictionary::new();
-        // dict.add_word("bad".to_string());
-        // dict.add_word("dad".to_string());
-        // dict.add_word("mad".to_string());
-        // assert_eq!(dict.search("pad".to_string()), false);
-        // assert_eq!(dict.search("bad".to_string()), true);
-        // assert_eq!(dict.search(".ad".to_string()), true);
-        // assert_eq!(dict.search("b..".to_string()), true);
-        todo!();
+        let mut dict = WordDictionary::new();
+        dict.add_word("bad".to_string());
+        dict.add_word("dad".to_string());
+        dict.add_word("mad".to_string());
+        assert_eq!(dict.search("pad".to_string()), false);
+        assert_eq!(dict.search("bad".to_string()), true);
+        assert_eq!(dict.search(".ad".to_string()), true);
+        assert_eq!(dict.search("b..".to_string()), true);
     }
 }

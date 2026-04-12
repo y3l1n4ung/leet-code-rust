@@ -12,19 +12,24 @@
 ///
 /// Link: https://leetcode.com/problems/lru-cache/
 
+struct Node {
+    key: i32,
+    value: i32,
+    prev: Option<Box<Node>>,
+}
 struct LRUCache {
-    todo: ()
+    todo: (),
 }
 
 impl LRUCache {
     pub fn new(capacity: i32) -> Self {
         todo!()
     }
-    
+
     pub fn get(&self, key: i32) -> i32 {
         todo!()
     }
-    
+
     pub fn put(&self, key: i32, value: i32) {
         todo!()
     }
@@ -36,16 +41,15 @@ mod tests {
 
     #[test]
     fn test_1() {
-        // let lru = LRUCache::new(2);
-        // lru.put(1, 1);
-        // lru.put(2, 2);
-        // assert_eq!(lru.get(1), 1);
-        // lru.put(3, 3);
-        // assert_eq!(lru.get(2), -1);
-        // lru.put(4, 4);
-        // assert_eq!(lru.get(1), -1);
-        // assert_eq!(lru.get(3), 3);
-        // assert_eq!(lru.get(4), 4);
-        todo!();
+        let mut lru = LRUCache::new(2);
+        lru.put(1, 1);
+        lru.put(2, 2);
+        assert_eq!(lru.get(1), 1);
+        lru.put(3, 3);
+        assert_eq!(lru.get(2), -1);
+        lru.put(4, 4);
+        assert_eq!(lru.get(1), -1);
+        assert_eq!(lru.get(3), 3);
+        assert_eq!(lru.get(4), 4);
     }
 }

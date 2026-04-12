@@ -54,9 +54,22 @@ mod tests {
 
     #[test]
     fn test_1() {
-        // let codec = Codec::new();
-        // let root = Some(Rc::new(RefCell::new(TreeNode::new(1))));
-        // assert_eq!(codec.deserialize(codec.serialize(root.clone())), root);
-        todo!();
+        let codec = Codec::new();
+        let root = Some(Rc::new(RefCell::new(TreeNode {
+            val: 1,
+            left: Some(Rc::new(RefCell::new(TreeNode::new(2)))),
+            right: Some(Rc::new(RefCell::new(TreeNode {
+                val: 3,
+                left: Some(Rc::new(RefCell::new(TreeNode::new(4)))),
+                right: Some(Rc::new(RefCell::new(TreeNode::new(5)))),
+            }))),
+        })));
+        assert_eq!(codec.deserialize(codec.serialize(root.clone())), root);
+    }
+
+    #[test]
+    fn test_empty() {
+        let codec = Codec::new();
+        assert_eq!(codec.deserialize(codec.serialize(None)), None);
     }
 }

@@ -42,18 +42,38 @@ impl Solution {
 mod tests {
     use super::*;
 
+    fn node(val: i32) -> Option<Rc<RefCell<TreeNode>>> {
+        Some(Rc::new(RefCell::new(TreeNode::new(val))))
+    }
+
     #[test]
     fn test_1() {
         // Input: root = [3,9,20,null,null,15,7]
         // Output: 3
-        todo!();
+        let root = node(3);
+        let n9 = node(9);
+        let n20 = node(20);
+        let n15 = node(15);
+        let n7 = node(7);
+
+        if let Some(ref n) = n20 {
+            n.borrow_mut().left = n15;
+            n.borrow_mut().right = n7;
+        }
+        if let Some(ref n) = root {
+            n.borrow_mut().left = n9;
+            n.borrow_mut().right = n20;
+        }
+        assert_eq!(Solution::max_depth(root), 3);
     }
 
     #[test]
     fn test_2() {
         // Input: root = [1,null,2]
         // Output: 2
-        todo!();
+        let root = node(1);
+        root.as_ref().unwrap().borrow_mut().right = node(2);
+        assert_eq!(Solution::max_depth(root), 2);
     }
 
     #[test]

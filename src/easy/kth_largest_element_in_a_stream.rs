@@ -30,12 +30,11 @@ mod tests {
 
     #[test]
     fn test_1() {
-        // let kth_largest = KthLargest::new(3, vec![4, 5, 8, 2]);
-        // assert_eq!(kth_largest.add(3), 4);
-        // assert_eq!(kth_largest.add(5), 5);
-        // assert_eq!(kth_largest.add(10), 5);
-        // assert_eq!(kth_largest.add(9), 8);
-        // assert_eq!(kth_largest.add(4), 8);
-        todo!();
+        let kth_largest = KthLargest::new(3, vec![4, 5, 8, 2]);
+        assert_eq!(kth_largest.add(3), 4);
+        assert_eq!(kth_largest.add(5), 5);
+        assert_eq!(kth_largest.add(10), 5);
+        assert_eq!(kth_largest.add(9), 8);
+        assert_eq!(kth_largest.add(4), 8);
     }
 }

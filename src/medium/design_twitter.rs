@@ -45,14 +45,13 @@ mod tests {
 
     #[test]
     fn test_1() {
-        // let twitter = Twitter::new();
-        // twitter.post_tweet(1, 5);
-        // assert_eq!(twitter.get_news_feed(1), vec![5]);
-        // twitter.follow(1, 2);
-        // twitter.post_tweet(2, 6);
-        // assert_eq!(twitter.get_news_feed(1), vec![6, 5]);
-        // twitter.unfollow(1, 2);
-        // assert_eq!(twitter.get_news_feed(1), vec![5]);
-        todo!();
+        let mut twitter = Twitter::new();
+        twitter.post_tweet(1, 5);
+        assert_eq!(twitter.get_news_feed(1), vec![5]);
+        twitter.follow(1, 2);
+        twitter.post_tweet(2, 6);
+        assert_eq!(twitter.get_news_feed(1), vec![6, 5]);
+        twitter.unfollow(1, 2);
+        assert_eq!(twitter.get_news_feed(1), vec![5]);
     }
 }

@@ -42,18 +42,50 @@ impl Solution {
 mod tests {
     use super::*;
 
+    fn node(val: i32) -> Option<Rc<RefCell<TreeNode>>> {
+        Some(Rc::new(RefCell::new(TreeNode::new(val))))
+    }
+
     #[test]
     fn test_1() {
         // Input: root = [3,1,4,3,null,1,5]
         // Output: 4
-        todo!();
+        let root = node(3);
+        let n1 = node(1);
+        let n4 = node(4);
+        let n3 = node(3);
+        let n1_2 = node(1);
+        let n5 = node(5);
+
+        if let Some(ref n) = n1 { n.borrow_mut().left = n3; }
+        if let Some(ref n) = n4 { 
+            n.borrow_mut().left = n1_2;
+            n.borrow_mut().right = n5;
+        }
+        if let Some(ref r) = root {
+            r.borrow_mut().left = n1;
+            r.borrow_mut().right = n4;
+        }
+        assert_eq!(Solution::good_nodes(root), 4);
     }
 
     #[test]
     fn test_2() {
         // Input: root = [3,3,null,4,2]
         // Output: 3
-        todo!();
+        let root = node(3);
+        let n3 = node(3);
+        let n4 = node(4);
+        let n2 = node(2);
+
+        if let Some(ref n) = n3 {
+            n.borrow_mut().left = n4;
+            n.borrow_mut().right = n2;
+        }
+        if let Some(ref r) = root {
+            r.borrow_mut().left = n3;
+        }
+        assert_eq!(Solution::good_nodes(root), 3);
     }
 
     #[test]

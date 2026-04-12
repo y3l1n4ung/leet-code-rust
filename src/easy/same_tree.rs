@@ -42,18 +42,36 @@ impl Solution {
 mod tests {
     use super::*;
 
+    fn node(val: i32) -> Option<Rc<RefCell<TreeNode>>> {
+        Some(Rc::new(RefCell::new(TreeNode::new(val))))
+    }
+
     #[test]
     fn test_1() {
         // Input: p = [1,2,3], q = [1,2,3]
         // Output: true
-        todo!();
+        let p = node(1);
+        p.as_ref().unwrap().borrow_mut().left = node(2);
+        p.as_ref().unwrap().borrow_mut().right = node(3);
+
+        let q = node(1);
+        q.as_ref().unwrap().borrow_mut().left = node(2);
+        q.as_ref().unwrap().borrow_mut().right = node(3);
+
+        assert_eq!(Solution::is_same_tree(p, q), true);
     }
 
     #[test]
     fn test_2() {
         // Input: p = [1,2], q = [1,null,2]
         // Output: false
-        todo!();
+        let p = node(1);
+        p.as_ref().unwrap().borrow_mut().left = node(2);
+
+        let q = node(1);
+        q.as_ref().unwrap().borrow_mut().right = node(2);
+
+        assert_eq!(Solution::is_same_tree(p, q), false);
     }
 
     #[test]

@@ -37,12 +37,11 @@ mod tests {
 
     #[test]
     fn test_1() {
-        // let mf = MedianFinder::new();
-        // mf.add_num(1);
-        // mf.add_num(2);
-        // assert_eq!(mf.find_median(), 1.5);
-        // mf.add_num(3);
-        // assert_eq!(mf.find_median(), 2.0);
-        todo!();
+        let mut mf = MedianFinder::new();
+        mf.add_num(1);
+        mf.add_num(2);
+        assert_eq!(mf.find_median(), 1.5);
+        mf.add_num(3);
+        assert_eq!(mf.find_median(), 2.0);
     }
 }

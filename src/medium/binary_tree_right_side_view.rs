@@ -41,11 +41,28 @@ impl Solution {
 mod tests {
     use super::*;
 
+    fn node(val: i32) -> Option<Rc<RefCell<TreeNode>>> {
+        Some(Rc::new(RefCell::new(TreeNode::new(val))))
+    }
+
     #[test]
     fn test_1() {
         // Input: root = [1,2,3,null,5,null,4]
         // Output: [1,3,4]
-        todo!();
+        let root = node(1);
+        let n2 = node(2);
+        let n3 = node(3);
+        let n5 = node(5);
+        let n4 = node(4);
+
+        if let Some(ref n) = n2 { n.borrow_mut().right = n5; }
+        if let Some(ref n) = n3 { n.borrow_mut().right = n4; }
+        if let Some(ref r) = root {
+            r.borrow_mut().left = n2;
+            r.borrow_mut().right = n3;
+        }
+
+        assert_eq!(Solution::right_side_view(root), vec![1, 3, 4]);
     }
 
     #[test]
@@ -57,6 +74,8 @@ mod tests {
     fn test_3() {
         // Input: root = [1,null,3]
         // Output: [1,3]
-        todo!();
+        let root = node(1);
+        root.as_ref().unwrap().borrow_mut().right = node(3);
+        assert_eq!(Solution::right_side_view(root), vec![1, 3]);
     }
 }

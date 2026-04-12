@@ -44,14 +44,64 @@ mod tests {
     fn test_1() {
         // Input: head = [1,2,3,4]
         // Output: [1,4,2,3]
-        todo!();
+        let mut head = Some(Box::new(ListNode {
+            val: 1,
+            next: Some(Box::new(ListNode {
+                val: 2,
+                next: Some(Box::new(ListNode {
+                    val: 3,
+                    next: Some(Box::new(ListNode::new(4))),
+                })),
+            })),
+        }));
+        Solution::reorder_list(&mut head);
+        
+        let expected = Some(Box::new(ListNode {
+            val: 1,
+            next: Some(Box::new(ListNode {
+                val: 4,
+                next: Some(Box::new(ListNode {
+                    val: 2,
+                    next: Some(Box::new(ListNode::new(3))),
+                })),
+            })),
+        }));
+        assert_eq!(head, expected);
     }
 
     #[test]
     fn test_2() {
         // Input: head = [1,2,3,4,5]
         // Output: [1,5,2,4,3]
-        todo!();
+        let mut head = Some(Box::new(ListNode {
+            val: 1,
+            next: Some(Box::new(ListNode {
+                val: 2,
+                next: Some(Box::new(ListNode {
+                    val: 3,
+                    next: Some(Box::new(ListNode {
+                        val: 4,
+                        next: Some(Box::new(ListNode::new(5))),
+                    })),
+                })),
+            })),
+        }));
+        Solution::reorder_list(&mut head);
+
+        let expected = Some(Box::new(ListNode {
+            val: 1,
+            next: Some(Box::new(ListNode {
+                val: 5,
+                next: Some(Box::new(ListNode {
+                    val: 2,
+                    next: Some(Box::new(ListNode {
+                        val: 4,
+                        next: Some(Box::new(ListNode::new(3))),
+                    })),
+                })),
+            })),
+        }));
+        assert_eq!(head, expected);
     }
 
     #[test]

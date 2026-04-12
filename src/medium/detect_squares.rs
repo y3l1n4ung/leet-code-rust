@@ -33,14 +33,13 @@ mod tests {
 
     #[test]
     fn test_1() {
-        // let ds = DetectSquares::new();
-        // ds.add(vec![3, 10]);
-        // ds.add(vec![11, 2]);
-        // ds.add(vec![3, 2]);
-        // assert_eq!(ds.count(vec![11, 10]), 1);
-        // assert_eq!(ds.count(vec![14, 8]), 0);
-        // ds.add(vec![11, 2]);
-        // assert_eq!(ds.count(vec![11, 10]), 2);
-        todo!();
+        let mut ds = DetectSquares::new();
+        ds.add(vec![3, 10]);
+        ds.add(vec![11, 2]);
+        ds.add(vec![3, 2]);
+        assert_eq!(ds.count(vec![11, 10]), 1);
+        assert_eq!(ds.count(vec![14, 8]), 0);
+        ds.add(vec![11, 2]);
+        assert_eq!(ds.count(vec![11, 10]), 2);
     }
 }

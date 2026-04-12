@@ -43,22 +43,41 @@ impl Solution {
 mod tests {
     use super::*;
 
+    fn node(val: i32) -> Option<Rc<RefCell<TreeNode>>> {
+        Some(Rc::new(RefCell::new(TreeNode::new(val))))
+    }
+
     #[test]
     fn test_1() {
         // Input: root = [1,2,3]
         // Output: 6
-        todo!();
+        let root = node(1);
+        if let Some(ref r) = root {
+            r.borrow_mut().left = node(2);
+            r.borrow_mut().right = node(3);
+        }
+        assert_eq!(Solution::max_path_sum(root), 6);
     }
 
     #[test]
     fn test_2() {
         // Input: root = [-10,9,20,null,null,15,7]
         // Output: 42
-        todo!();
+        let root = node(-10);
+        let n20 = node(20);
+        if let Some(ref n) = n20 {
+            n.borrow_mut().left = node(15);
+            n.borrow_mut().right = node(7);
+        }
+        if let Some(ref r) = root {
+            r.borrow_mut().left = node(9);
+            r.borrow_mut().right = n20;
+        }
+        assert_eq!(Solution::max_path_sum(root), 42);
     }
 
     #[test]
     fn test_3() {
-        assert_eq!(Solution::max_path_sum(Some(Rc::new(RefCell::new(TreeNode::new(5))))), 5);
+        assert_eq!(Solution::max_path_sum(node(5)), 5);
     }
 }

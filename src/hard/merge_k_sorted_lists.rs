@@ -41,7 +41,50 @@ mod tests {
     fn test_1() {
         // Input: lists = [[1,4,5],[1,3,4],[2,6]]
         // Output: [1,1,2,3,4,4,5,6]
-        todo!();
+        let l1 = Some(Box::new(ListNode {
+            val: 1,
+            next: Some(Box::new(ListNode {
+                val: 4,
+                next: Some(Box::new(ListNode::new(5))),
+            })),
+        }));
+        let l2 = Some(Box::new(ListNode {
+            val: 1,
+            next: Some(Box::new(ListNode {
+                val: 3,
+                next: Some(Box::new(ListNode::new(4))),
+            })),
+        }));
+        let l3 = Some(Box::new(ListNode {
+            val: 2,
+            next: Some(Box::new(ListNode::new(6))),
+        }));
+        
+        let result = Solution::merge_k_lists(vec![l1, l2, l3]);
+        
+        let expected = Some(Box::new(ListNode {
+            val: 1,
+            next: Some(Box::new(ListNode {
+                val: 1,
+                next: Some(Box::new(ListNode {
+                    val: 2,
+                    next: Some(Box::new(ListNode {
+                        val: 3,
+                        next: Some(Box::new(ListNode {
+                            val: 4,
+                            next: Some(Box::new(ListNode {
+                                val: 4,
+                                next: Some(Box::new(ListNode {
+                                    val: 5,
+                                    next: Some(Box::new(ListNode::new(6))),
+                                })),
+                            })),
+                        })),
+                    })),
+                })),
+            })),
+        }));
+        assert_eq!(result, expected);
     }
 
     #[test]

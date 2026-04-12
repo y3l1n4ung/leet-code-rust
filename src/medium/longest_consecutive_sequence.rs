@@ -1,3 +1,5 @@
+use std::collections::HashSet;
+
 /// [128] Longest Consecutive Sequence
 /// Difficulty: Medium
 /// Topics: Array, Hash Table, Union Find
@@ -8,13 +10,27 @@
 ///
 /// Link: https://leetcode.com/problems/longest-consecutive-sequence/
 
-
 struct Solution;
 
 impl Solution {
-    
     pub fn longest_consecutive(nums: Vec<i32>) -> i32 {
-        todo!()
+        let num_set: HashSet<i32> = nums.into_iter().collect();
+
+        let mut longest = 0;
+
+        for &num in &num_set {
+            if !num_set.contains(&(num - 1)) {
+                let mut current_num = num;
+                let mut current_streak = 1;
+
+                while num_set.contains(&(current_num + 1)) {
+                    current_num += 1;
+                    current_streak += 1;
+                }
+                longest = std::cmp::max(longest, current_streak);
+            }
+        }
+        longest
     }
 }
 
@@ -29,7 +45,10 @@ mod tests {
 
     #[test]
     fn test_2() {
-        assert_eq!(Solution::longest_consecutive(vec![0, 3, 7, 2, 5, 8, 4, 6, 0, 1]), 9);
+        assert_eq!(
+            Solution::longest_consecutive(vec![0, 3, 7, 2, 5, 8, 4, 6, 0, 1]),
+            9
+        );
     }
 
     #[test]

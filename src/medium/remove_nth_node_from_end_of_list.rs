@@ -40,7 +40,31 @@ mod tests {
     fn test_1() {
         // Input: head = [1,2,3,4,5], n = 2
         // Output: [1,2,3,5]
-        todo!();
+        let head = Some(Box::new(ListNode {
+            val: 1,
+            next: Some(Box::new(ListNode {
+                val: 2,
+                next: Some(Box::new(ListNode {
+                    val: 3,
+                    next: Some(Box::new(ListNode {
+                        val: 4,
+                        next: Some(Box::new(ListNode::new(5))),
+                    })),
+                })),
+            })),
+        }));
+        let result = Solution::remove_nth_from_end(head, 2);
+        let expected = Some(Box::new(ListNode {
+            val: 1,
+            next: Some(Box::new(ListNode {
+                val: 2,
+                next: Some(Box::new(ListNode {
+                    val: 3,
+                    next: Some(Box::new(ListNode::new(5))),
+                })),
+            })),
+        }));
+        assert_eq!(result, expected);
     }
 
     #[test]
@@ -52,6 +76,12 @@ mod tests {
     fn test_3() {
         // Input: head = [1,2], n = 1
         // Output: [1]
-        todo!();
+        let head = Some(Box::new(ListNode {
+            val: 1,
+            next: Some(Box::new(ListNode::new(2))),
+        }));
+        let result = Solution::remove_nth_from_end(head, 1);
+        let expected = Some(Box::new(ListNode::new(1)));
+        assert_eq!(result, expected);
     }
 }

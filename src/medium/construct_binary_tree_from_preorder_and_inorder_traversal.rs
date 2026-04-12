@@ -41,11 +41,29 @@ impl Solution {
 mod tests {
     use super::*;
 
+    fn node(val: i32) -> Option<Rc<RefCell<TreeNode>>> {
+        Some(Rc::new(RefCell::new(TreeNode::new(val))))
+    }
+
     #[test]
     fn test_1() {
         // Input: preorder = [3,9,20,15,7], inorder = [9,3,15,20,7]
         // Output: [3,9,20,null,null,15,7]
-        todo!();
+        let preorder = vec![3, 9, 20, 15, 7];
+        let inorder = vec![9, 3, 15, 20, 7];
+        let result = Solution::build_tree(preorder, inorder);
+
+        let expected = node(3);
+        let n20 = node(20);
+        if let Some(ref n) = n20 {
+            n.borrow_mut().left = node(15);
+            n.borrow_mut().right = node(7);
+        }
+        if let Some(ref r) = expected {
+            r.borrow_mut().left = node(9);
+            r.borrow_mut().right = n20;
+        }
+        assert_eq!(result, expected);
     }
 
     #[test]
