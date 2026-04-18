@@ -41,7 +41,7 @@ mod tests {
 
     #[test]
     fn test_1() {
-        let mut lru = LRUCache::new(2);
+        let lru = LRUCache::new(2);
         lru.put(1, 1);
         lru.put(2, 2);
         assert_eq!(lru.get(1), 1);

@@ -10,18 +10,18 @@
 /// Link: https://leetcode.com/problems/detect-squares/
 
 struct DetectSquares {
-    todo: ()
+    todo: (),
 }
 
 impl DetectSquares {
     pub fn new() -> Self {
         todo!()
     }
-    
+
     pub fn add(&self, point: Vec<i32>) {
         todo!()
     }
-    
+
     pub fn count(&self, point: Vec<i32>) -> i32 {
         todo!()
     }
@@ -33,7 +33,7 @@ mod tests {
 
     #[test]
     fn test_1() {
-        let mut ds = DetectSquares::new();
+        let ds = DetectSquares::new();
         ds.add(vec![3, 10]);
         ds.add(vec![11, 2]);
         ds.add(vec![3, 2]);

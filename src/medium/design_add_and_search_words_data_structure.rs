@@ -12,18 +12,18 @@
 /// Link: https://leetcode.com/problems/design-add-and-search-words-data-structure/
 
 struct WordDictionary {
-    todo: ()
+    todo: (),
 }
 
 impl WordDictionary {
     pub fn new() -> Self {
         todo!()
     }
-    
+
     pub fn add_word(&self, word: String) {
         todo!()
     }
-    
+
     pub fn search(&self, word: String) -> bool {
         todo!()
     }
@@ -35,7 +35,7 @@ mod tests {
 
     #[test]
     fn test_1() {
-        let mut dict = WordDictionary::new();
+        let dict = WordDictionary::new();
         dict.add_word("bad".to_string());
         dict.add_word("dad".to_string());
         dict.add_word("mad".to_string());

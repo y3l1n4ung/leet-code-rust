@@ -12,18 +12,18 @@
 /// Link: https://leetcode.com/problems/time-based-key-value-store/
 
 struct TimeMap {
-    todo: ()
+    todo: (),
 }
 
 impl TimeMap {
     pub fn new() -> Self {
         todo!()
     }
-    
+
     pub fn set(&self, key: String, value: String, timestamp: i32) {
         todo!()
     }
-    
+
     pub fn get(&self, key: String, timestamp: i32) -> String {
         todo!()
     }
@@ -35,7 +35,7 @@ mod tests {
 
     #[test]
     fn test_1() {
-        let mut time_map = TimeMap::new();
+        let time_map = TimeMap::new();
         time_map.set("foo".to_string(), "bar".to_string(), 1);
         assert_eq!(time_map.get("foo".to_string(), 1), "bar".to_string());
         assert_eq!(time_map.get("foo".to_string(), 3), "bar".to_string());

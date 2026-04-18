@@ -14,18 +14,18 @@
 /// Link: https://leetcode.com/problems/find-median-from-data-stream/
 
 struct MedianFinder {
-    todo: ()
+    todo: (),
 }
 
 impl MedianFinder {
     pub fn new() -> Self {
         todo!()
     }
-    
+
     pub fn add_num(&self, num: i32) {
         todo!()
     }
-    
+
     pub fn find_median(&self) -> f64 {
         todo!()
     }
@@ -37,7 +37,7 @@ mod tests {
 
     #[test]
     fn test_1() {
-        let mut mf = MedianFinder::new();
+        let mf = MedianFinder::new();
         mf.add_num(1);
         mf.add_num(2);
         assert_eq!(mf.find_median(), 1.5);
