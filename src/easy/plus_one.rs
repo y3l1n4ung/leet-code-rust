@@ -11,8 +11,17 @@
 struct Solution;
 
 impl Solution {
-    pub fn plus_one(digits: Vec<i32>) -> Vec<i32> {
-        todo!()
+    pub fn plus_one(mut digits: Vec<i32>) -> Vec<i32> {
+        for i in (0..digits.len()).rev(){
+            if digits[i] < 9{
+                digits[i] += 1;
+                return  digits;
+            }
+            digits[i]=0;
+
+        }
+        digits.insert(0, 1);
+        digits
     }
 }
 
@@ -33,5 +42,11 @@ mod tests {
     #[test]
     fn test_3() {
         assert_eq!(Solution::plus_one(vec![9]), vec![1, 0]);
+    }
+
+     #[test]
+    fn test_4() {
+        assert_eq!(Solution::plus_one(vec![9,8,7,6,5,4,3,2,1,0]), vec![9,8,7,6,5,4,3,2,1,1]
+);
     }
 }

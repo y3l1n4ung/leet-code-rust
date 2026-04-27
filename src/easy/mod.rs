@@ -34,3 +34,6 @@ pub mod valid_palindrome;
 pub mod valid_parentheses;
 pub mod build_array;
 pub mod evaluate_reverse_polish_notation;
+pub mod exclusive_time_of_functions;
+pub mod pascal_traingle;
+pub mod pascal_traingle_two;
