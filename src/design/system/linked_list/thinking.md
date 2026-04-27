@@ -1,27 +1,37 @@
-# System Design Thinking: Design Linked List
+# Thinking: Linked List Memory Management in Rust
 
-Designing a linked list from scratch helps solidify an understanding of pointers, dynamic memory allocation, and the structural differences between arrays and node-based lists.
+When designing linked lists in Rust, we encounter the ownership system's strict rules. Choosing the right smart pointer depends on the list's topology.
 
-## 1. Requirements
+## 1. Singly Linked List: Why `Box<T>`?
+A singly linked list has a **recursive, single-ownership** structure.
+- **`Box<T>`**: Represents unique ownership. Each node owns the next one.
+- **Why not `Rc`?**: In a basic singly linked list, there are no shared nodes or back-references, so the overhead of reference counting isn't needed. `Box` is the most efficient choice for heap allocation here.
 
-### Functional Requirements
-- `get(index)`: Get the value of the `index`-th node in the linked list. If the index is invalid, return -1.
-- `add_at_head(val)`: Add a node of value `val` before the first element of the linked list.
-- `add_at_tail(val)`: Append a node of value `val` to the last element of the linked list.
-- `add_at_index(index, val)`: Add a node of value `val` before the `index`-th node. If `index` equals the length of the list, append it. If `index` is greater, the node will not be inserted.
-- `delete_at_index(index)`: Delete the `index`-th node in the linked list, if the index is valid.
+## 2. Doubly Linked List: Why `Rc<RefCell<T>>` and `Weak<T>`?
+A doubly linked list requires **shared ownership** and **bidirectional references**.
+- **`Rc<T>` (Reference Counted)**: Allows a node to be owned by both its predecessor (via `next`) and the list's `head`/`tail` pointers.
+- **`RefCell<T>`**: Provides **interior mutability**. Since `Rc` only gives immutable references, we need `RefCell` to mutate the `next`/`prev` pointers at runtime while obeying borrowing rules.
+- **`Weak<T>`**: Crucial for the `prev` pointer. If `prev` used `Rc`, it would create a **reference cycle** (A -> B and B -> A), meaning the memory would never be freed (a memory leak). `Weak` does not increment the strong reference count, breaking the cycle.
 
-## 2. High-Level Architecture
+## Comparison Summary
 
-### Singly Linked List vs. Doubly Linked List
-- **Singly Linked List**: Each node contains a value and a pointer to the next node. Requires $O(N)$ to find a node for insertion/deletion, but uses less memory.
-- **Doubly Linked List**: Each node contains a value, a pointer to the next node, and a pointer to the previous node. Deletion is easier if you already have the node reference, but memory overhead is higher.
+| Feature | `Box<T>` | `Rc<RefCell<T>>` |
+| :--- | :--- | :--- |
+| **Ownership** | Unique (Single) | Shared (Multiple) |
+| **Overhead** | Minimal (Pointer only) | High (Control block + check) |
+| **Flexibility** | Rigid | High (Graph-like) |
+| **Best For** | Singly Linked, Trees | Doubly Linked, Graphs |
 
-### Rust-Specific Challenges
-Implementing a linked list in Rust is notoriously challenging because of the ownership model.
-- You can use `Option<Box<Node>>` for a singly linked list.
-- You can use `Rc<RefCell<Node>>` for a doubly linked list, but it can be verbose and prone to memory leaks (reference cycles).
-- Alternatively, use a `Vec` to represent nodes (arena allocation) where pointers are just array indices.
+## 3. Advanced Patterns
 
-## 3. Rust Implementation (Educational)
-In `mod.rs`, you will implement a custom linked list. Practice managing ownership safely.
+### Arena-based (Index-backed)
+Instead of pointers, store nodes in a `Vec<Node>` and use `usize` indices.
+- **Why?**: Avoids `RefCell` overhead and borrow checker complexity. It's cache-friendly and great for complex graphs.
+
+### Raw Pointers (`unsafe`)
+The "C-style" way using `*mut T`.
+- **Why?**: Used by `std::collections::LinkedList`. It provides the absolute highest performance but requires `unsafe` blocks and manual memory management.
+
+### Functional (Immutable)
+Nodes are wrapped in `Rc<T>` but are immutable.
+- **Why?**: Common in functional programming. Allows "structural sharing" where multiple lists share the same tail nodes safely.
