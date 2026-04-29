@@ -37,3 +37,4 @@ pub mod evaluate_reverse_polish_notation;
 pub mod exclusive_time_of_functions;
 pub mod pascal_traingle;
 pub mod pascal_traingle_two;
+pub mod contain_duplicate_two;
