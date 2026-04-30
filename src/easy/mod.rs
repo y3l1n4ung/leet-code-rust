@@ -41,3 +41,4 @@ pub mod contain_duplicate_two;
 pub mod merge_strings_alternatively;
 pub mod greated_common_divisor_strings;
 pub mod kid_with_greated_number_of_candies;
+pub mod can_place_flowers;
