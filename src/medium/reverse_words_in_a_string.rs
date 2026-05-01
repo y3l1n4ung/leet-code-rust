@@ -37,35 +37,7 @@ struct Solution;
 
 impl Solution {
     pub fn reverse_words(s: String) -> String {
-        let mut words: Vec<&str> = s.split(" ").collect();
-        let mut count = words.len() - 1;
-        
-        loop {
-            if words[count].is_empty(){
-                words.remove(count);
-            }
-            if count==0{
-             break;   
-            }
-            count-=1;
-            
-         
-            
-        }
-
-        let (mut left, mut right) = (0, words.len() - 1);
-
-        while right > left {
-          
-
-         let tmp = words[left];
-                words[left] = words[right];
-                words[right] = tmp;
-                left += 1;
-                right -= 1;
-        }
-
-        words.join(" ")
+       s.split_whitespace().rev().collect::<Vec<&str>>().join("")
     }
 }
 
