@@ -23,18 +23,18 @@ mod tests {
 
     #[test]
     fn test_1() {
-        let points = vec![vec![0,0],vec![2,2],vec![3,10],vec![5,2],vec![7,0]];
+        let points = vec![vec![0, 0], vec![2, 2], vec![3, 10], vec![5, 2], vec![7, 0]];
         assert_eq!(Solution::min_cost_connect_points(points), 20);
     }
 
     #[test]
     fn test_2() {
-        let points = vec![vec![3,12],vec![-2,5],vec![-4,1]];
+        let points = vec![vec![3, 12], vec![-2, 5], vec![-4, 1]];
         assert_eq!(Solution::min_cost_connect_points(points), 18);
     }
 
     #[test]
     fn test_3() {
-        assert_eq!(Solution::min_cost_connect_points(vec![vec![0,0]]), 0);
+        assert_eq!(Solution::min_cost_connect_points(vec![vec![0, 0]]), 0);
     }
 }

@@ -23,22 +23,27 @@ mod tests {
     #[test]
     fn test_1() {
         let board = vec![
-            vec!['o','a','a','n'],
-            vec!['e','t','a','e'],
-            vec!['i','h','k','r'],
-            vec!['i','f','l','v']
+            vec!['o', 'a', 'a', 'n'],
+            vec!['e', 't', 'a', 'e'],
+            vec!['i', 'h', 'k', 'r'],
+            vec!['i', 'f', 'l', 'v'],
         ];
-        let words = vec!["oath".to_string(),"pea".to_string(),"eat".to_string(),"rain".to_string()];
+        let words = vec![
+            "oath".to_string(),
+            "pea".to_string(),
+            "eat".to_string(),
+            "rain".to_string(),
+        ];
         let mut result = Solution::find_words(board, words);
         result.sort();
-        let mut expected = vec!["eat".to_string(),"oath".to_string()];
+        let mut expected = vec!["eat".to_string(), "oath".to_string()];
         expected.sort();
         assert_eq!(result, expected);
     }
 
     #[test]
     fn test_2() {
-        let board = vec![vec!['a','b'],vec!['c','d']];
+        let board = vec![vec!['a', 'b'], vec!['c', 'd']];
         let words = vec!["abcb".to_string()];
         assert_eq!(Solution::find_words(board, words), Vec::<String>::new());
     }

@@ -25,12 +25,18 @@ mod tests {
 
     #[test]
     fn test_1() {
-        assert_eq!(Solution::min_distance("horse".to_string(), "ros".to_string()), 3);
+        assert_eq!(
+            Solution::min_distance("horse".to_string(), "ros".to_string()),
+            3
+        );
     }
 
     #[test]
     fn test_2() {
-        assert_eq!(Solution::min_distance("intention".to_string(), "execution".to_string()), 5);
+        assert_eq!(
+            Solution::min_distance("intention".to_string(), "execution".to_string()),
+            5
+        );
     }
 
     #[test]

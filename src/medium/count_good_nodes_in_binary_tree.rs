@@ -1,3 +1,4 @@
+use std::cell::RefCell;
 /// [1448] Count Good Nodes in Binary Tree
 /// Difficulty: Medium
 /// Topics: Tree, Depth-First Search, Breadth-First Search, Binary Tree
@@ -7,27 +8,25 @@
 /// Return the number of good nodes in the binary tree.
 ///
 /// Link: https://leetcode.com/problems/count-good-nodes-in-binary-tree/
-
 use std::rc::Rc;
-use std::cell::RefCell;
 
 // Definition for a binary tree node.
 #[derive(Debug, PartialEq, Eq)]
 pub struct TreeNode {
-  pub val: i32,
-  pub left: Option<Rc<RefCell<TreeNode>>>,
-  pub right: Option<Rc<RefCell<TreeNode>>>,
+    pub val: i32,
+    pub left: Option<Rc<RefCell<TreeNode>>>,
+    pub right: Option<Rc<RefCell<TreeNode>>>,
 }
 
 impl TreeNode {
-  #[inline]
-  pub fn new(val: i32) -> Self {
-    TreeNode {
-      val,
-      left: None,
-      right: None
+    #[inline]
+    pub fn new(val: i32) -> Self {
+        TreeNode {
+            val,
+            left: None,
+            right: None,
+        }
     }
-  }
 }
 
 struct Solution;
@@ -57,8 +56,10 @@ mod tests {
         let n1_2 = node(1);
         let n5 = node(5);
 
-        if let Some(ref n) = n1 { n.borrow_mut().left = n3; }
-        if let Some(ref n) = n4 { 
+        if let Some(ref n) = n1 {
+            n.borrow_mut().left = n3;
+        }
+        if let Some(ref n) = n4 {
             n.borrow_mut().left = n1_2;
             n.borrow_mut().right = n5;
         }

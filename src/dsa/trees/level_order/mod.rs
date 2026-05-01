@@ -1,8 +1,8 @@
 // Binary Tree Level Order Traversal Practice 🦀
 
-use std::rc::Rc;
 use std::cell::RefCell;
 use std::collections::VecDeque;
+use std::rc::Rc;
 
 #[derive(Debug, PartialEq, Eq)]
 pub struct TreeNode {
@@ -29,7 +29,9 @@ impl Solution {
     /// Returns the values of each level in a 2D vector.
     pub fn level_order(root: Option<Rc<RefCell<TreeNode>>>) -> Vec<Vec<i32>> {
         let mut result = Vec::new();
-        if root.is_none() { return result; }
+        if root.is_none() {
+            return result;
+        }
 
         let mut queue = VecDeque::new();
         queue.push_back(root.unwrap());

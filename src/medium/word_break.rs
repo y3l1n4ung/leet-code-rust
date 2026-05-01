@@ -22,16 +22,40 @@ mod tests {
 
     #[test]
     fn test_1() {
-        assert_eq!(Solution::word_break("leetcode".to_string(), vec!["leet".to_string(), "code".to_string()]), true);
+        assert_eq!(
+            Solution::word_break(
+                "leetcode".to_string(),
+                vec!["leet".to_string(), "code".to_string()]
+            ),
+            true
+        );
     }
 
     #[test]
     fn test_2() {
-        assert_eq!(Solution::word_break("applepenapple".to_string(), vec!["apple".to_string(), "pen".to_string()]), true);
+        assert_eq!(
+            Solution::word_break(
+                "applepenapple".to_string(),
+                vec!["apple".to_string(), "pen".to_string()]
+            ),
+            true
+        );
     }
 
     #[test]
     fn test_3() {
-        assert_eq!(Solution::word_break("catsandog".to_string(), vec!["cats".to_string(), "dog".to_string(), "sand".to_string(), "and".to_string(), "cat".to_string()]), false);
+        assert_eq!(
+            Solution::word_break(
+                "catsandog".to_string(),
+                vec![
+                    "cats".to_string(),
+                    "dog".to_string(),
+                    "sand".to_string(),
+                    "and".to_string(),
+                    "cat".to_string()
+                ]
+            ),
+            false
+        );
     }
 }

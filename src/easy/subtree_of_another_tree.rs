@@ -1,3 +1,4 @@
+use std::cell::RefCell;
 /// [572] Subtree of Another Tree
 /// Difficulty: Easy
 /// Topics: Tree, Depth-First Search, String Matching, Binary Tree
@@ -7,33 +8,34 @@
 /// A subtree of a binary tree tree is a tree that consists of a node in tree and all of this node's descendants. The tree tree could also be considered as a subtree of itself.
 ///
 /// Link: https://leetcode.com/problems/subtree-of-another-tree/
-
 use std::rc::Rc;
-use std::cell::RefCell;
 
 // Definition for a binary tree node.
 #[derive(Debug, PartialEq, Eq)]
 pub struct TreeNode {
-  pub val: i32,
-  pub left: Option<Rc<RefCell<TreeNode>>>,
-  pub right: Option<Rc<RefCell<TreeNode>>>,
+    pub val: i32,
+    pub left: Option<Rc<RefCell<TreeNode>>>,
+    pub right: Option<Rc<RefCell<TreeNode>>>,
 }
 
 impl TreeNode {
-  #[inline]
-  pub fn new(val: i32) -> Self {
-    TreeNode {
-      val,
-      left: None,
-      right: None
+    #[inline]
+    pub fn new(val: i32) -> Self {
+        TreeNode {
+            val,
+            left: None,
+            right: None,
+        }
     }
-  }
 }
 
 struct Solution;
 
 impl Solution {
-    pub fn is_subtree(root: Option<Rc<RefCell<TreeNode>>>, sub_root: Option<Rc<RefCell<TreeNode>>>) -> bool {
+    pub fn is_subtree(
+        root: Option<Rc<RefCell<TreeNode>>>,
+        sub_root: Option<Rc<RefCell<TreeNode>>>,
+    ) -> bool {
         todo!()
     }
 }

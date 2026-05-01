@@ -16,15 +16,15 @@ impl Foo {
     pub fn new() -> Self {
         todo!("Initialize the synchronization state")
     }
-    
+
     pub fn first(&self, print_first: impl FnOnce()) {
         todo!("Execute first and signal that it's done")
     }
-    
+
     pub fn second(&self, print_second: impl FnOnce()) {
         todo!("Wait for first to complete, then execute second and signal")
     }
-    
+
     pub fn third(&self, print_third: impl FnOnce()) {
         todo!("Wait for second to complete, then execute third")
     }

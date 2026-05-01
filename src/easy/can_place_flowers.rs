@@ -32,15 +32,16 @@ struct Solution;
 
 impl Solution {
     pub fn can_place_flowers(mut flowerbed: Vec<i32>, mut n: i32) -> bool {
-
         for i in 0..flowerbed.len() {
-            if n <= 0 {return true;}
+            if n <= 0 {
+                return true;
+            }
             let prev_empty = i == 0 || flowerbed[i - 1] == 0;
-            let next_empty = i == flowerbed.len() - 1 || flowerbed[i+1] ==0;
+            let next_empty = i == flowerbed.len() - 1 || flowerbed[i + 1] == 0;
 
             if prev_empty && flowerbed[i] == 0 && next_empty {
                 flowerbed[i] = 1;
-                n-=1;
+                n -= 1;
             }
         }
         n <= 0
@@ -74,13 +75,10 @@ mod tests {
         );
     }
 
-        #[test]
+    #[test]
     fn test_example_4() {
         // Input: [0,0,0,1], n = 1 -> Output: false
-        assert_eq!(
-            Solution::can_place_flowers(vec![0, 0, 0, 1], 1),
-            true
-        );
+        assert_eq!(Solution::can_place_flowers(vec![0, 0, 0, 1], 1), true);
     }
 
     #[test]

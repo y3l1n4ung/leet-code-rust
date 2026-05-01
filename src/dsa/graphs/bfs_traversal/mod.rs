@@ -1,6 +1,6 @@
 // BFS Traversal Practice 🦀
 
-use std::collections::{VecDeque, HashSet, HashMap};
+use std::collections::{HashMap, HashSet, VecDeque};
 
 pub struct Graph {
     // Adjacency list: Node -> [Neighbors]
@@ -9,7 +9,9 @@ pub struct Graph {
 
 impl Graph {
     pub fn new() -> Self {
-        Self { adj: HashMap::new() }
+        Self {
+            adj: HashMap::new(),
+        }
     }
 
     pub fn add_edge(&mut self, u: i32, v: i32) {
@@ -64,7 +66,7 @@ mod tests {
         graph.add_edge(3, 4);
 
         let result = Solution::bfs(&graph, 1);
-        
+
         // BFS for this graph starting at 1: [1, 2, 3, 4] or [1, 3, 2, 4]
         assert_eq!(result[0], 1);
         assert!(result.contains(&2));

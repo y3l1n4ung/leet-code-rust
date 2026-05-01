@@ -8,7 +8,7 @@
 ///
 /// Link: https://leetcode.com/problems/clone-graph/
 
-// Note: This problem in Rust usually requires custom Node definitions and RC/RefCell 
+// Note: This problem in Rust usually requires custom Node definitions and RC/RefCell
 // to handle the graph structure's shared ownership and potential cycles.
 
 struct Solution;

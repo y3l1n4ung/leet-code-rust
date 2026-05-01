@@ -1,11 +1,11 @@
 // Find Median from Data Stream Practice 🦀
 
-use std::collections::BinaryHeap;
 use std::cmp::Reverse;
+use std::collections::BinaryHeap;
 
 pub struct MedianFinder {
-    small: BinaryHeap<i32>,           // Max-Heap
-    large: BinaryHeap<Reverse<i32>>,  // Min-Heap
+    small: BinaryHeap<i32>,          // Max-Heap
+    large: BinaryHeap<Reverse<i32>>, // Min-Heap
 }
 
 impl MedianFinder {
@@ -19,12 +19,12 @@ impl MedianFinder {
     pub fn add_num(&mut self, num: i32) {
         // Step 1: Push to max-heap
         self.small.push(num);
-        
+
         // Step 2: Move from max-heap to min-heap to keep order
         if let Some(val) = self.small.pop() {
             self.large.push(Reverse(val));
         }
-        
+
         // Step 3: Rebalance size
         if self.large.len() > self.small.len() {
             if let Some(Reverse(val)) = self.large.pop() {

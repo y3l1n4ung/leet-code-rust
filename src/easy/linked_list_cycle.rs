@@ -17,15 +17,17 @@
 // Definition for singly-linked list.
 #[derive(PartialEq, Eq, Clone, Debug)]
 pub struct ListNode {
-  pub val: i32,
-  pub next: Option<Box<ListNode>>
+    pub val: i32,
+    pub next: Option<Box<ListNode>>,
 }
 
 struct Solution;
 
 impl Solution {
     pub fn has_cycle(head: Option<Box<ListNode>>) -> bool {
-        todo!("Cycles are tricky with Box; usually requires raw pointers in Rust for this specific LeetCode problem")
+        todo!(
+            "Cycles are tricky with Box; usually requires raw pointers in Rust for this specific LeetCode problem"
+        )
     }
 }
 

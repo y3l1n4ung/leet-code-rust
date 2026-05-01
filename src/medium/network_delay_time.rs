@@ -22,19 +22,19 @@ mod tests {
 
     #[test]
     fn test_1() {
-        let times = vec![vec![2,1,1],vec![2,3,1],vec![3,4,1]];
+        let times = vec![vec![2, 1, 1], vec![2, 3, 1], vec![3, 4, 1]];
         assert_eq!(Solution::network_delay_time(times, 4, 2), 2);
     }
 
     #[test]
     fn test_2() {
-        let times = vec![vec![1,2,1]];
+        let times = vec![vec![1, 2, 1]];
         assert_eq!(Solution::network_delay_time(times, 2, 1), 1);
     }
 
     #[test]
     fn test_3() {
-        let times = vec![vec![1,2,1]];
+        let times = vec![vec![1, 2, 1]];
         assert_eq!(Solution::network_delay_time(times, 2, 2), -1);
     }
 }

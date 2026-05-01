@@ -22,16 +22,25 @@ mod tests {
 
     #[test]
     fn test_1() {
-        assert_eq!(Solution::check_inclusion("ab".to_string(), "eidbaooo".to_string()), true);
+        assert_eq!(
+            Solution::check_inclusion("ab".to_string(), "eidbaooo".to_string()),
+            true
+        );
     }
 
     #[test]
     fn test_2() {
-        assert_eq!(Solution::check_inclusion("ab".to_string(), "eidboaoo".to_string()), false);
+        assert_eq!(
+            Solution::check_inclusion("ab".to_string(), "eidboaoo".to_string()),
+            false
+        );
     }
 
     #[test]
     fn test_3() {
-        assert_eq!(Solution::check_inclusion("adc".to_string(), "dcda".to_string()), true);
+        assert_eq!(
+            Solution::check_inclusion("adc".to_string(), "dcda".to_string()),
+            true
+        );
     }
 }

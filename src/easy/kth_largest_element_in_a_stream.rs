@@ -11,14 +11,14 @@
 /// Link: https://leetcode.com/problems/kth-largest-element-in-a-stream/
 
 struct KthLargest {
-    todo: ()
+    todo: (),
 }
 
 impl KthLargest {
     pub fn new(k: i32, nums: Vec<i32>) -> Self {
         todo!()
     }
-    
+
     pub fn add(&self, val: i32) -> i32 {
         todo!()
     }

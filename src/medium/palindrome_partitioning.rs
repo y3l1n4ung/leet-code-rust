@@ -23,18 +23,27 @@ mod tests {
     fn test_1() {
         let mut result = Solution::partition("aab".to_string());
         result.sort();
-        let mut expected = vec![vec!["a".to_string(),"a".to_string(),"b".to_string()],vec!["aa".to_string(),"b".to_string()]];
+        let mut expected = vec![
+            vec!["a".to_string(), "a".to_string(), "b".to_string()],
+            vec!["aa".to_string(), "b".to_string()],
+        ];
         expected.sort();
         assert_eq!(result, expected);
     }
 
     #[test]
     fn test_2() {
-        assert_eq!(Solution::partition("a".to_string()), vec![vec!["a".to_string()]]);
+        assert_eq!(
+            Solution::partition("a".to_string()),
+            vec![vec!["a".to_string()]]
+        );
     }
 
     #[test]
     fn test_3() {
-        assert_eq!(Solution::partition("".to_string()), vec![Vec::<String>::new()]);
+        assert_eq!(
+            Solution::partition("".to_string()),
+            vec![Vec::<String>::new()]
+        );
     }
 }

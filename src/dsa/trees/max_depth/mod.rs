@@ -1,7 +1,7 @@
 // Maximum Depth of Binary Tree Practice 🦀
 
-use std::rc::Rc;
 use std::cell::RefCell;
+use std::rc::Rc;
 
 #[derive(Debug, PartialEq, Eq)]
 pub struct TreeNode {

@@ -3,7 +3,6 @@
 /// Tags: CAPTheorem, Sharding, Replication
 ///
 /// Link: https://bytebytego.com/courses/system-design-interview/design-a-key-value-store
-
 use std::collections::HashMap;
 
 /// A simple in-memory Key-Value store
@@ -41,13 +40,13 @@ mod tests {
     #[test]
     fn test_kv_store_basic() {
         let mut store = KeyValueStore::new();
-        
+
         store.put("name".to_string(), "Rust".to_string());
         assert_eq!(store.get("name"), Some("Rust".to_string()));
-        
+
         store.put("name".to_string(), "Rustacean".to_string());
         assert_eq!(store.get("name"), Some("Rustacean".to_string()));
-        
+
         assert!(store.delete("name"));
         assert_eq!(store.get("name"), None);
     }

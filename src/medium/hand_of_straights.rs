@@ -22,16 +22,22 @@ mod tests {
 
     #[test]
     fn test_1() {
-        assert_eq!(Solution::is_n_straight_hand(vec![1,2,3,6,2,3,4,7,8], 3), true);
+        assert_eq!(
+            Solution::is_n_straight_hand(vec![1, 2, 3, 6, 2, 3, 4, 7, 8], 3),
+            true
+        );
     }
 
     #[test]
     fn test_2() {
-        assert_eq!(Solution::is_n_straight_hand(vec![1,2,3,4,5], 4), false);
+        assert_eq!(Solution::is_n_straight_hand(vec![1, 2, 3, 4, 5], 4), false);
     }
 
     #[test]
     fn test_3() {
-        assert_eq!(Solution::is_n_straight_hand(vec![1,1,2,2,3,3], 3), true);
+        assert_eq!(
+            Solution::is_n_straight_hand(vec![1, 1, 2, 2, 3, 3], 3),
+            true
+        );
     }
 }

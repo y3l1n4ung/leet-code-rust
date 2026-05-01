@@ -15,26 +15,26 @@
 /// Link: https://leetcode.com/problems/min-stack/
 
 struct MinStack {
-    todo: ()
+    todo: (),
 }
 
 impl MinStack {
     pub fn new() -> Self {
         todo!()
     }
-    
+
     pub fn push(&mut self, val: i32) {
         todo!()
     }
-    
+
     pub fn pop(&mut self) {
         todo!()
     }
-    
+
     pub fn top(&self) -> i32 {
         todo!()
     }
-    
+
     pub fn get_min(&self) -> i32 {
         todo!()
     }

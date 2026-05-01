@@ -24,13 +24,43 @@ mod tests {
 
     #[test]
     fn test_1() {
-        let tickets = vec![vec!["MUC".to_string(),"LHR".to_string()],vec!["JFK".to_string(),"MUC".to_string()],vec!["SFO".to_string(),"SJC".to_string()],vec!["LHR".to_string(),"SFO".to_string()]];
-        assert_eq!(Solution::find_itinerary(tickets), vec!["JFK".to_string(),"MUC".to_string(),"LHR".to_string(),"SFO".to_string(),"SJC".to_string()]);
+        let tickets = vec![
+            vec!["MUC".to_string(), "LHR".to_string()],
+            vec!["JFK".to_string(), "MUC".to_string()],
+            vec!["SFO".to_string(), "SJC".to_string()],
+            vec!["LHR".to_string(), "SFO".to_string()],
+        ];
+        assert_eq!(
+            Solution::find_itinerary(tickets),
+            vec![
+                "JFK".to_string(),
+                "MUC".to_string(),
+                "LHR".to_string(),
+                "SFO".to_string(),
+                "SJC".to_string()
+            ]
+        );
     }
 
     #[test]
     fn test_2() {
-        let tickets = vec![vec!["JFK".to_string(),"SFO".to_string()],vec!["JFK".to_string(),"ATL".to_string()],vec!["SFO".to_string(),"ATL".to_string()],vec!["ATL".to_string(),"JFK".to_string()],vec!["ATL".to_string(),"SFO".to_string()]];
-        assert_eq!(Solution::find_itinerary(tickets), vec!["JFK".to_string(),"ATL".to_string(),"JFK".to_string(),"SFO".to_string(),"ATL".to_string(),"SFO".to_string()]);
+        let tickets = vec![
+            vec!["JFK".to_string(), "SFO".to_string()],
+            vec!["JFK".to_string(), "ATL".to_string()],
+            vec!["SFO".to_string(), "ATL".to_string()],
+            vec!["ATL".to_string(), "JFK".to_string()],
+            vec!["ATL".to_string(), "SFO".to_string()],
+        ];
+        assert_eq!(
+            Solution::find_itinerary(tickets),
+            vec![
+                "JFK".to_string(),
+                "ATL".to_string(),
+                "JFK".to_string(),
+                "SFO".to_string(),
+                "ATL".to_string(),
+                "SFO".to_string()
+            ]
+        );
     }
 }

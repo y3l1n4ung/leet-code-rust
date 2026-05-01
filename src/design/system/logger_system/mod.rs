@@ -3,7 +3,6 @@
 /// Topics: Hash Table, Design
 ///
 /// Link: https://leetcode.com/problems/logger-rate-limiter/
-
 use std::collections::HashMap;
 
 pub struct Logger {

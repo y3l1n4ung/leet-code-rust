@@ -24,21 +24,24 @@ mod tests {
     fn test_1() {
         let mut result = Solution::letter_combinations("23".to_string());
         result.sort();
-        let mut expected = vec!["ad","ae","af","bd","be","bf","cd","ce","cf"];
+        let mut expected = vec!["ad", "ae", "af", "bd", "be", "bf", "cd", "ce", "cf"];
         expected.sort();
         assert_eq!(result, expected);
     }
 
     #[test]
     fn test_2() {
-        assert_eq!(Solution::letter_combinations("".to_string()), Vec::<String>::new());
+        assert_eq!(
+            Solution::letter_combinations("".to_string()),
+            Vec::<String>::new()
+        );
     }
 
     #[test]
     fn test_3() {
         let mut result = Solution::letter_combinations("2".to_string());
         result.sort();
-        let mut expected = vec!["a","b","c"];
+        let mut expected = vec!["a", "b", "c"];
         expected.sort();
         assert_eq!(result, expected);
     }

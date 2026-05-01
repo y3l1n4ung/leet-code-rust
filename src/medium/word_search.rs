@@ -22,19 +22,31 @@ mod tests {
 
     #[test]
     fn test_1() {
-        let board = vec![vec!['A','B','C','E'],vec!['S','F','C','S'],vec!['A','D','E','E']];
+        let board = vec![
+            vec!['A', 'B', 'C', 'E'],
+            vec!['S', 'F', 'C', 'S'],
+            vec!['A', 'D', 'E', 'E'],
+        ];
         assert_eq!(Solution::exist(board, "ABCCED".to_string()), true);
     }
 
     #[test]
     fn test_2() {
-        let board = vec![vec!['A','B','C','E'],vec!['S','F','C','S'],vec!['A','D','E','E']];
+        let board = vec![
+            vec!['A', 'B', 'C', 'E'],
+            vec!['S', 'F', 'C', 'S'],
+            vec!['A', 'D', 'E', 'E'],
+        ];
         assert_eq!(Solution::exist(board, "SEE".to_string()), true);
     }
 
     #[test]
     fn test_3() {
-        let board = vec![vec!['A','B','C','E'],vec!['S','F','C','S'],vec!['A','D','E','E']];
+        let board = vec![
+            vec!['A', 'B', 'C', 'E'],
+            vec!['S', 'F', 'C', 'S'],
+            vec!['A', 'D', 'E', 'E'],
+        ];
         assert_eq!(Solution::exist(board, "ABCB".to_string()), false);
     }
 }

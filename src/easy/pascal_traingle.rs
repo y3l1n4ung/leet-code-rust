@@ -1,7 +1,7 @@
 //! # 118. Pascal's Triangle
-//! 
+//!
 //! Given an integer `numRows`, return the first `numRows` of Pascal's triangle.
-//! 
+//!
 //! ### Problem Statement
 //! In Pascal's triangle, each number is the sum of the two numbers directly above it.
 
@@ -10,16 +10,16 @@ struct Solution;
 impl Solution {
     pub fn generate(num_rows: i32) -> Vec<Vec<i32>> {
         let mut triangle: Vec<Vec<i32>> = Vec::with_capacity(num_rows as usize);
-        
+
         for i in 0..num_rows {
             let i_idx = i as usize;
             let mut row = vec![1; i_idx + 1];
-            
+
             for j in 1..i {
                 let j_idx = j as usize;
                 let prev_row = &triangle[i_idx - 1];
-                
-                let left_parent = prev_row[j_idx - 1]; 
+
+                let left_parent = prev_row[j_idx - 1];
                 let right_parent = prev_row[j_idx];
 
                 row[j_idx] = left_parent + right_parent;
@@ -29,7 +29,6 @@ impl Solution {
         triangle
     }
 }
-
 
 #[cfg(test)]
 mod tests {

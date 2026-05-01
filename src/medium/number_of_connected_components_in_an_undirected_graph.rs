@@ -23,13 +23,13 @@ mod tests {
 
     #[test]
     fn test_1() {
-        let edges = vec![vec![0,1], vec![1,2], vec![3,4]];
+        let edges = vec![vec![0, 1], vec![1, 2], vec![3, 4]];
         assert_eq!(Solution::count_components(5, edges), 2);
     }
 
     #[test]
     fn test_2() {
-        let edges = vec![vec![0,1], vec![1,2], vec![2,3], vec![3,4]];
+        let edges = vec![vec![0, 1], vec![1, 2], vec![2, 3], vec![3, 4]];
         assert_eq!(Solution::count_components(5, edges), 1);
     }
 

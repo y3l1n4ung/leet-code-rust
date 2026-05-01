@@ -23,12 +23,12 @@ mod tests {
 
     #[test]
     fn test_1() {
-        assert_eq!(Solution::max_coins(vec![3,1,5,8]), 167);
+        assert_eq!(Solution::max_coins(vec![3, 1, 5, 8]), 167);
     }
 
     #[test]
     fn test_2() {
-        assert_eq!(Solution::max_coins(vec![1,5]), 10);
+        assert_eq!(Solution::max_coins(vec![1, 5]), 10);
     }
 
     #[test]

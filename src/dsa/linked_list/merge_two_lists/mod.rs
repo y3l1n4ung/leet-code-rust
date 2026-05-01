@@ -2,18 +2,15 @@
 
 #[derive(PartialEq, Eq, Clone, Debug)]
 pub struct ListNode {
-  pub val: i32,
-  pub next: Option<Box<ListNode>>
+    pub val: i32,
+    pub next: Option<Box<ListNode>>,
 }
 
 impl ListNode {
-  #[inline]
-  pub fn new(val: i32) -> Self {
-    ListNode {
-      next: None,
-      val
+    #[inline]
+    pub fn new(val: i32) -> Self {
+        ListNode { next: None, val }
     }
-  }
 }
 
 pub struct Solution;
@@ -23,7 +20,7 @@ impl Solution {
     /// Recursive solution in Rust is often cleaner with Box.
     pub fn merge_two_lists(
         list1: Option<Box<ListNode>>,
-        list2: Option<Box<ListNode>>
+        list2: Option<Box<ListNode>>,
     ) -> Option<Box<ListNode>> {
         match (list1, list2) {
             (None, None) => None,

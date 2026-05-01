@@ -17,7 +17,7 @@ impl Solution {
         for c in candies {
             if c + extra_candies >= max {
                 result.push(true);
-            }else {
+            } else {
                 result.push(false);
             }
         }
@@ -25,7 +25,6 @@ impl Solution {
         result
     }
 }
-
 
 #[cfg(test)]
 mod tests {

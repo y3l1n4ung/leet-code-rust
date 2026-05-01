@@ -9,7 +9,7 @@
 //! Example 1:
 //! Input: target = [1,3], n = 3
 //! Output: ["Push","Push","Pop","Push"]
-//! Explanation: 
+//! Explanation:
 //! Read 1: Push 1.
 //! Read 2: Push 2, Pop 2.
 //! Read 3: Push 3.
@@ -18,7 +18,6 @@ struct Solution;
 
 impl Solution {
     pub fn build_array(target: Vec<i32>, n: i32) -> Vec<String> {
-     
         let mut stack: Vec<String> = vec![];
         let mut current_stream = 1;
 
@@ -31,11 +30,10 @@ impl Solution {
             stack.push("Push".to_string());
             current_stream += 1;
         }
-        
+
         stack
     }
 }
-
 
 #[cfg(test)]
 mod tests {

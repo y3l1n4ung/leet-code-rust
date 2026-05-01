@@ -1,6 +1,6 @@
-pub mod linked_list;
 pub mod binary_search;
-pub mod trees;
+pub mod dynamic_programming;
 pub mod graphs;
 pub mod heap;
-pub mod dynamic_programming;
+pub mod linked_list;
+pub mod trees;

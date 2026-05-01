@@ -21,12 +21,12 @@ mod tests {
 
     #[test]
     fn test_1() {
-        assert_eq!(Solution::max_product(vec![2,3,-2,4]), 6);
+        assert_eq!(Solution::max_product(vec![2, 3, -2, 4]), 6);
     }
 
     #[test]
     fn test_2() {
-        assert_eq!(Solution::max_product(vec![-2,0,-1]), 0);
+        assert_eq!(Solution::max_product(vec![-2, 0, -1]), 0);
     }
 
     #[test]

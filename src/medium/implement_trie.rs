@@ -13,22 +13,22 @@
 /// Link: https://leetcode.com/problems/implement-trie-prefix-tree/
 
 struct Trie {
-    todo: ()
+    todo: (),
 }
 
 impl Trie {
     pub fn new() -> Self {
         todo!()
     }
-    
+
     pub fn insert(&self, word: String) {
         todo!()
     }
-    
+
     pub fn search(&self, word: String) -> bool {
         todo!()
     }
-    
+
     pub fn starts_with(&self, prefix: String) -> bool {
         todo!()
     }

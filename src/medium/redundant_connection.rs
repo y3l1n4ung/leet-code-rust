@@ -23,17 +23,32 @@ mod tests {
 
     #[test]
     fn test_1() {
-        assert_eq!(Solution::find_redundant_connection(vec![vec![1,2], vec![1,3], vec![2,3]]), vec![2,3]);
+        assert_eq!(
+            Solution::find_redundant_connection(vec![vec![1, 2], vec![1, 3], vec![2, 3]]),
+            vec![2, 3]
+        );
     }
 
     #[test]
     fn test_2() {
-        assert_eq!(Solution::find_redundant_connection(vec![vec![1,2], vec![2,3], vec![3,4], vec![1,4], vec![1,5]]), vec![1,4]);
+        assert_eq!(
+            Solution::find_redundant_connection(vec![
+                vec![1, 2],
+                vec![2, 3],
+                vec![3, 4],
+                vec![1, 4],
+                vec![1, 5]
+            ]),
+            vec![1, 4]
+        );
     }
 
     #[test]
     fn test_3() {
         // Just a basic test to ensure it handles input
-        assert_eq!(Solution::find_redundant_connection(vec![vec![1,2], vec![2,1]]), vec![2,1]);
+        assert_eq!(
+            Solution::find_redundant_connection(vec![vec![1, 2], vec![2, 1]]),
+            vec![2, 1]
+        );
     }
 }

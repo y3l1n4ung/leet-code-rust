@@ -25,19 +25,41 @@ mod tests {
 
     #[test]
     fn test_1() {
-        let word_list = vec!["hot".to_string(), "dot".to_string(), "dog".to_string(), "lot".to_string(), "log".to_string(), "cog".to_string()];
-        assert_eq!(Solution::ladder_length("hit".to_string(), "cog".to_string(), word_list), 5);
+        let word_list = vec![
+            "hot".to_string(),
+            "dot".to_string(),
+            "dog".to_string(),
+            "lot".to_string(),
+            "log".to_string(),
+            "cog".to_string(),
+        ];
+        assert_eq!(
+            Solution::ladder_length("hit".to_string(), "cog".to_string(), word_list),
+            5
+        );
     }
 
     #[test]
     fn test_2() {
-        let word_list = vec!["hot".to_string(), "dot".to_string(), "dog".to_string(), "lot".to_string(), "log".to_string()];
-        assert_eq!(Solution::ladder_length("hit".to_string(), "cog".to_string(), word_list), 0);
+        let word_list = vec![
+            "hot".to_string(),
+            "dot".to_string(),
+            "dog".to_string(),
+            "lot".to_string(),
+            "log".to_string(),
+        ];
+        assert_eq!(
+            Solution::ladder_length("hit".to_string(), "cog".to_string(), word_list),
+            0
+        );
     }
 
     #[test]
     fn test_3() {
         let word_list = vec!["a".to_string(), "b".to_string(), "c".to_string()];
-        assert_eq!(Solution::ladder_length("a".to_string(), "c".to_string(), word_list), 2);
+        assert_eq!(
+            Solution::ladder_length("a".to_string(), "c".to_string(), word_list),
+            2
+        );
     }
 }

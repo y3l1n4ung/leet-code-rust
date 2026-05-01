@@ -22,16 +22,25 @@ mod tests {
 
     #[test]
     fn test_1() {
-        assert_eq!(Solution::least_interval(vec!['A','A','A','B','B','B'], 2), 8);
+        assert_eq!(
+            Solution::least_interval(vec!['A', 'A', 'A', 'B', 'B', 'B'], 2),
+            8
+        );
     }
 
     #[test]
     fn test_2() {
-        assert_eq!(Solution::least_interval(vec!['A','C','A','B','D','B'], 1), 6);
+        assert_eq!(
+            Solution::least_interval(vec!['A', 'C', 'A', 'B', 'D', 'B'], 1),
+            6
+        );
     }
 
     #[test]
     fn test_3() {
-        assert_eq!(Solution::least_interval(vec!['A','A','A', 'B','B','B'], 0), 6);
+        assert_eq!(
+            Solution::least_interval(vec!['A', 'A', 'A', 'B', 'B', 'B'], 0),
+            6
+        );
     }
 }

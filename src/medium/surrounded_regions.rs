@@ -23,16 +23,16 @@ mod tests {
     #[test]
     fn test_1() {
         let mut board = vec![
-            vec!['X','X','X','X'],
-            vec!['X','O','O','X'],
-            vec!['X','X','O','X'],
-            vec!['X','O','X','X']
+            vec!['X', 'X', 'X', 'X'],
+            vec!['X', 'O', 'O', 'X'],
+            vec!['X', 'X', 'O', 'X'],
+            vec!['X', 'O', 'X', 'X'],
         ];
         let expected = vec![
-            vec!['X','X','X','X'],
-            vec!['X','X','X','X'],
-            vec!['X','X','X','X'],
-            vec!['X','O','X','X']
+            vec!['X', 'X', 'X', 'X'],
+            vec!['X', 'X', 'X', 'X'],
+            vec!['X', 'X', 'X', 'X'],
+            vec!['X', 'O', 'X', 'X'],
         ];
         Solution::solve(&mut board);
         assert_eq!(board, expected);

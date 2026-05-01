@@ -1,8 +1,8 @@
 #![allow(dead_code, unused_variables, unused_imports)]
 
 mod concurrency;
-mod dsa;
 mod design;
+mod dsa;
 mod easy;
 mod hard;
 mod medium;

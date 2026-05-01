@@ -10,9 +10,7 @@ pub struct HitCounter {
 
 impl HitCounter {
     pub fn new() -> Self {
-        Self {
-            hits: Vec::new(),
-        }
+        Self { hits: Vec::new() }
     }
 
     /// Record a hit.

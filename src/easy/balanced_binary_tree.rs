@@ -1,3 +1,4 @@
+use std::cell::RefCell;
 /// [110] Balanced Binary Tree
 /// Difficulty: Easy
 /// Topics: Tree, Depth-First Search, Binary Tree
@@ -7,27 +8,25 @@
 /// A height-balanced binary tree is a binary tree in which the depth of the two subtrees of every node never differs by more than one.
 ///
 /// Link: https://leetcode.com/problems/balanced-binary-tree/
-
 use std::rc::Rc;
-use std::cell::RefCell;
 
 // Definition for a binary tree node.
 #[derive(Debug, PartialEq, Eq)]
 pub struct TreeNode {
-  pub val: i32,
-  pub left: Option<Rc<RefCell<TreeNode>>>,
-  pub right: Option<Rc<RefCell<TreeNode>>>,
+    pub val: i32,
+    pub left: Option<Rc<RefCell<TreeNode>>>,
+    pub right: Option<Rc<RefCell<TreeNode>>>,
 }
 
 impl TreeNode {
-  #[inline]
-  pub fn new(val: i32) -> Self {
-    TreeNode {
-      val,
-      left: None,
-      right: None
+    #[inline]
+    pub fn new(val: i32) -> Self {
+        TreeNode {
+            val,
+            left: None,
+            right: None,
+        }
     }
-  }
 }
 
 struct Solution;
@@ -46,7 +45,7 @@ mod tests {
         Some(Rc::new(RefCell::new(TreeNode::new(val))))
     }
 
-/// Helper to build a tree from a level-order vector (LeetCode format)
+    /// Helper to build a tree from a level-order vector (LeetCode format)
     /// null is represented as -1 for simplicity in this example
     fn build_tree(values: &[i32]) -> Option<Rc<RefCell<TreeNode>>> {
         if values.is_empty() || values[0] == -1 {

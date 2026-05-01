@@ -24,7 +24,7 @@ mod tests {
 
     #[test]
     fn test_1() {
-        assert_eq!(Solution::max_profit(vec![1,2,3,0,2]), 3);
+        assert_eq!(Solution::max_profit(vec![1, 2, 3, 0, 2]), 3);
     }
 
     #[test]
@@ -34,6 +34,6 @@ mod tests {
 
     #[test]
     fn test_3() {
-        assert_eq!(Solution::max_profit(vec![1,2,4]), 3);
+        assert_eq!(Solution::max_profit(vec![1, 2, 4]), 3);
     }
 }

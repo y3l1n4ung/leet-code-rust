@@ -15,27 +15,27 @@ impl MyCircularQueue {
     pub fn new(k: i32) -> Self {
         todo!("Initialize the queue with a fixed capacity k")
     }
-    
+
     pub fn en_queue(&mut self, value: i32) -> bool {
         todo!("Insert the element, return true if successful")
     }
-    
+
     pub fn de_queue(&mut self) -> bool {
         todo!("Delete an element, return true if successful")
     }
-    
+
     pub fn front(&self) -> i32 {
         todo!("Return the front element, or -1 if empty")
     }
-    
+
     pub fn rear(&self) -> i32 {
         todo!("Return the rear element, or -1 if empty")
     }
-    
+
     pub fn is_empty(&self) -> bool {
         todo!("Check if the queue is empty")
     }
-    
+
     pub fn is_full(&self) -> bool {
         todo!("Check if the queue is full")
     }

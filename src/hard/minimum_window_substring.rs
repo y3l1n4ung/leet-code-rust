@@ -21,7 +21,10 @@ mod tests {
 
     #[test]
     fn test_1() {
-        assert_eq!(Solution::min_window("ADOBECODEBANC".to_string(), "ABC".to_string()), "BANC");
+        assert_eq!(
+            Solution::min_window("ADOBECODEBANC".to_string(), "ABC".to_string()),
+            "BANC"
+        );
     }
 
     #[test]

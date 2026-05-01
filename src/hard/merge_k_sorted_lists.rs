@@ -11,18 +11,15 @@
 // Definition for singly-linked list.
 #[derive(PartialEq, Eq, Clone, Debug)]
 pub struct ListNode {
-  pub val: i32,
-  pub next: Option<Box<ListNode>>
+    pub val: i32,
+    pub next: Option<Box<ListNode>>,
 }
 
 impl ListNode {
-  #[inline]
-  fn new(val: i32) -> Self {
-    ListNode {
-      next: None,
-      val
+    #[inline]
+    fn new(val: i32) -> Self {
+        ListNode { next: None, val }
     }
-  }
 }
 
 struct Solution;
@@ -59,9 +56,9 @@ mod tests {
             val: 2,
             next: Some(Box::new(ListNode::new(6))),
         }));
-        
+
         let result = Solution::merge_k_lists(vec![l1, l2, l3]);
-        
+
         let expected = Some(Box::new(ListNode {
             val: 1,
             next: Some(Box::new(ListNode {

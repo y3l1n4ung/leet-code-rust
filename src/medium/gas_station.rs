@@ -23,22 +23,22 @@ mod tests {
 
     #[test]
     fn test_1() {
-        let gas = vec![1,2,3,4,5];
-        let cost = vec![3,4,5,1,2];
+        let gas = vec![1, 2, 3, 4, 5];
+        let cost = vec![3, 4, 5, 1, 2];
         assert_eq!(Solution::can_complete_circuit(gas, cost), 3);
     }
 
     #[test]
     fn test_2() {
-        let gas = vec![2,3,4];
-        let cost = vec![3,4,3];
+        let gas = vec![2, 3, 4];
+        let cost = vec![3, 4, 3];
         assert_eq!(Solution::can_complete_circuit(gas, cost), -1);
     }
 
     #[test]
     fn test_3() {
-        let gas = vec![5,1,2,3,4];
-        let cost = vec![4,4,1,5,1];
+        let gas = vec![5, 1, 2, 3, 4];
+        let cost = vec![4, 4, 1, 5, 1];
         assert_eq!(Solution::can_complete_circuit(gas, cost), 4);
     }
 }

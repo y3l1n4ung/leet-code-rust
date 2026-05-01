@@ -8,11 +8,9 @@
 ///
 /// Link: https://leetcode.com/problems/3sum/
 
-
 struct Solution;
 
 impl Solution {
-    
     pub fn three_sum(nums: Vec<i32>) -> Vec<Vec<i32>> {
         todo!()
     }
@@ -25,10 +23,14 @@ mod tests {
     #[test]
     fn test_1() {
         let mut result = Solution::three_sum(vec![-1, 0, 1, 2, -1, -4]);
-        for r in result.iter_mut() { r.sort(); }
+        for r in result.iter_mut() {
+            r.sort();
+        }
         result.sort();
         let mut expected = vec![vec![-1, -1, 2], vec![-1, 0, 1]];
-        for e in expected.iter_mut() { e.sort(); }
+        for e in expected.iter_mut() {
+            e.sort();
+        }
         expected.sort();
         assert_eq!(result, expected);
     }

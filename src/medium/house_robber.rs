@@ -22,16 +22,16 @@ mod tests {
 
     #[test]
     fn test_1() {
-        assert_eq!(Solution::rob(vec![1,2,3,1]), 4);
+        assert_eq!(Solution::rob(vec![1, 2, 3, 1]), 4);
     }
 
     #[test]
     fn test_2() {
-        assert_eq!(Solution::rob(vec![2,7,9,3,1]), 12);
+        assert_eq!(Solution::rob(vec![2, 7, 9, 3, 1]), 12);
     }
 
     #[test]
     fn test_3() {
-        assert_eq!(Solution::rob(vec![1,1]), 1);
+        assert_eq!(Solution::rob(vec![1, 1]), 1);
     }
 }

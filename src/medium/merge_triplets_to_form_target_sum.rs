@@ -23,22 +23,22 @@ mod tests {
 
     #[test]
     fn test_1() {
-        let triplets = vec![vec![2,5,3],vec![1,8,4],vec![1,7,5]];
-        let target = vec![2,7,5];
+        let triplets = vec![vec![2, 5, 3], vec![1, 8, 4], vec![1, 7, 5]];
+        let target = vec![2, 7, 5];
         assert_eq!(Solution::merge_triplets(triplets, target), true);
     }
 
     #[test]
     fn test_2() {
-        let triplets = vec![vec![3,4,5],vec![4,5,6]];
-        let target = vec![3,2,5];
+        let triplets = vec![vec![3, 4, 5], vec![4, 5, 6]];
+        let target = vec![3, 2, 5];
         assert_eq!(Solution::merge_triplets(triplets, target), false);
     }
 
     #[test]
     fn test_3() {
-        let triplets = vec![vec![2,5,3],vec![2,3,4],vec![1,2,5],vec![5,2,3]];
-        let target = vec![5,5,5];
+        let triplets = vec![vec![2, 5, 3], vec![2, 3, 4], vec![1, 2, 5], vec![5, 2, 3]];
+        let target = vec![5, 5, 5];
         assert_eq!(Solution::merge_triplets(triplets, target), true);
     }
 }

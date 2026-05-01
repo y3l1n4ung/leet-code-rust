@@ -1,3 +1,4 @@
+use std::cell::RefCell;
 /// [543] Diameter of Binary Tree
 /// Difficulty: Easy
 /// Topics: Tree, Depth-First Search, Binary Tree
@@ -8,27 +9,25 @@
 /// The length of a path between two nodes is represented by the number of edges between them.
 ///
 /// Link: https://leetcode.com/problems/diameter-of-binary-tree/
-
 use std::rc::Rc;
-use std::cell::RefCell;
 
 // Definition for a binary tree node.
 #[derive(Debug, PartialEq, Eq)]
 pub struct TreeNode {
-  pub val: i32,
-  pub left: Option<Rc<RefCell<TreeNode>>>,
-  pub right: Option<Rc<RefCell<TreeNode>>>,
+    pub val: i32,
+    pub left: Option<Rc<RefCell<TreeNode>>>,
+    pub right: Option<Rc<RefCell<TreeNode>>>,
 }
 
 impl TreeNode {
-  #[inline]
-  pub fn new(val: i32) -> Self {
-    TreeNode {
-      val,
-      left: None,
-      right: None
+    #[inline]
+    pub fn new(val: i32) -> Self {
+        TreeNode {
+            val,
+            left: None,
+            right: None,
+        }
     }
-  }
 }
 
 struct Solution;

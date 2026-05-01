@@ -3,7 +3,6 @@
 /// Tags: Producer, Consumer, PubSub, Decoupling
 ///
 /// Link: https://bytebytego.com/courses/system-design-interview/design-a-message-queue
-
 use std::collections::{HashMap, VecDeque};
 
 #[derive(Clone, Debug, PartialEq)]
@@ -55,24 +54,30 @@ mod tests {
     #[test]
     fn test_produce_consume() {
         let mut mq = MessageQueue::new();
-        let msg = Message { id: "1".to_string(), payload: "Hello".to_string() };
-        
+        let msg = Message {
+            id: "1".to_string(),
+            payload: "Hello".to_string(),
+        };
+
         mq.produce("test_topic", msg.clone());
         let consumed = mq.consume("test_topic");
-        
+
         assert_eq!(consumed, Some(msg));
     }
 
     #[test]
     fn test_acknowledgement() {
         let mut mq = MessageQueue::new();
-        let msg = Message { id: "1".to_string(), payload: "Important".to_string() };
-        
+        let msg = Message {
+            id: "1".to_string(),
+            payload: "Important".to_string(),
+        };
+
         mq.produce("orders", msg.clone());
         let consumed = mq.consume("orders").unwrap();
-        
+
         mq.acknowledge(&consumed.id);
-        
+
         // Ensure it's not re-queued
         mq.retry_inflight("orders");
         assert_eq!(mq.consume("orders"), None);
@@ -81,14 +86,17 @@ mod tests {
     #[test]
     fn test_retry_without_ack() {
         let mut mq = MessageQueue::new();
-        let msg = Message { id: "1".to_string(), payload: "Retry me".to_string() };
-        
+        let msg = Message {
+            id: "1".to_string(),
+            payload: "Retry me".to_string(),
+        };
+
         mq.produce("alerts", msg.clone());
         let _ = mq.consume("alerts");
-        
+
         // Simulate no ACK and a retry trigger
         mq.retry_inflight("alerts");
-        
+
         // Should be available again
         assert_eq!(mq.consume("alerts"), Some(msg));
     }

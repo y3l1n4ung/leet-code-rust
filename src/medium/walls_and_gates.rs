@@ -31,13 +31,13 @@ mod tests {
             vec![INF, -1, 0, INF],
             vec![INF, INF, INF, -1],
             vec![INF, -1, INF, -1],
-            vec![0, -1, INF, INF]
+            vec![0, -1, INF, INF],
         ];
         let expected = vec![
             vec![3, -1, 0, 1],
             vec![2, 2, 1, -1],
             vec![1, -1, 2, -1],
-            vec![0, -1, 3, 4]
+            vec![0, -1, 3, 4],
         ];
         Solution::walls_and_gates(&mut rooms);
         assert_eq!(rooms, expected);

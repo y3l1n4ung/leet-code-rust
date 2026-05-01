@@ -21,16 +21,33 @@ mod tests {
 
     #[test]
     fn test_1() {
-        assert_eq!(Solution::is_interleave("aabcc".to_string(), "dbbca".to_string(), "aadbbcbcac".to_string()), true);
+        assert_eq!(
+            Solution::is_interleave(
+                "aabcc".to_string(),
+                "dbbca".to_string(),
+                "aadbbcbcac".to_string()
+            ),
+            true
+        );
     }
 
     #[test]
     fn test_2() {
-        assert_eq!(Solution::is_interleave("aabcc".to_string(), "dbbca".to_string(), "aadbbbaccc".to_string()), false);
+        assert_eq!(
+            Solution::is_interleave(
+                "aabcc".to_string(),
+                "dbbca".to_string(),
+                "aadbbbaccc".to_string()
+            ),
+            false
+        );
     }
 
     #[test]
     fn test_3() {
-        assert_eq!(Solution::is_interleave("".to_string(), "".to_string(), "".to_string()), true);
+        assert_eq!(
+            Solution::is_interleave("".to_string(), "".to_string(), "".to_string()),
+            true
+        );
     }
 }

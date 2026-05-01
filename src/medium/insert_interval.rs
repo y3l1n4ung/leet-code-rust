@@ -23,20 +23,32 @@ mod tests {
 
     #[test]
     fn test_1() {
-        let intervals = vec![vec![1,3],vec![6,9]];
-        let new_interval = vec![2,5];
-        assert_eq!(Solution::insert(intervals, new_interval), vec![vec![1,5],vec![6,9]]);
+        let intervals = vec![vec![1, 3], vec![6, 9]];
+        let new_interval = vec![2, 5];
+        assert_eq!(
+            Solution::insert(intervals, new_interval),
+            vec![vec![1, 5], vec![6, 9]]
+        );
     }
 
     #[test]
     fn test_2() {
-        let intervals = vec![vec![1,2],vec![3,5],vec![6,7],vec![8,10],vec![12,16]];
-        let new_interval = vec![4,8];
-        assert_eq!(Solution::insert(intervals, new_interval), vec![vec![1,2],vec![3,10],vec![12,16]]);
+        let intervals = vec![
+            vec![1, 2],
+            vec![3, 5],
+            vec![6, 7],
+            vec![8, 10],
+            vec![12, 16],
+        ];
+        let new_interval = vec![4, 8];
+        assert_eq!(
+            Solution::insert(intervals, new_interval),
+            vec![vec![1, 2], vec![3, 10], vec![12, 16]]
+        );
     }
 
     #[test]
     fn test_3() {
-        assert_eq!(Solution::insert(vec![], vec![5,7]), vec![vec![5,7]]);
+        assert_eq!(Solution::insert(vec![], vec![5, 7]), vec![vec![5, 7]]);
     }
 }

@@ -1,3 +1,4 @@
+use std::cell::RefCell;
 /// [230] Kth Smallest Element in a BST
 /// Difficulty: Medium
 /// Topics: Tree, Depth-First Search, Binary Search Tree, Binary Tree
@@ -6,27 +7,25 @@
 /// Given the root of a binary search tree, and an integer k, return the kth smallest value (1-indexed) of all the values of the nodes in the tree.
 ///
 /// Link: https://leetcode.com/problems/kth-smallest-element-in-a-bst/
-
 use std::rc::Rc;
-use std::cell::RefCell;
 
 // Definition for a binary tree node.
 #[derive(Debug, PartialEq, Eq)]
 pub struct TreeNode {
-  pub val: i32,
-  pub left: Option<Rc<RefCell<TreeNode>>>,
-  pub right: Option<Rc<RefCell<TreeNode>>>,
+    pub val: i32,
+    pub left: Option<Rc<RefCell<TreeNode>>>,
+    pub right: Option<Rc<RefCell<TreeNode>>>,
 }
 
 impl TreeNode {
-  #[inline]
-  pub fn new(val: i32) -> Self {
-    TreeNode {
-      val,
-      left: None,
-      right: None
+    #[inline]
+    pub fn new(val: i32) -> Self {
+        TreeNode {
+            val,
+            left: None,
+            right: None,
+        }
     }
-  }
 }
 
 struct Solution;
@@ -51,7 +50,9 @@ mod tests {
         // Output: 1
         let root = node(3);
         let n1 = node(1);
-        if let Some(ref n) = n1 { n.borrow_mut().right = node(2); }
+        if let Some(ref n) = n1 {
+            n.borrow_mut().right = node(2);
+        }
         if let Some(ref r) = root {
             r.borrow_mut().left = n1;
             r.borrow_mut().right = node(4);
@@ -66,7 +67,9 @@ mod tests {
         let root = node(5);
         let n3 = node(3);
         let n2 = node(2);
-        if let Some(ref n) = n2 { n.borrow_mut().left = node(1); }
+        if let Some(ref n) = n2 {
+            n.borrow_mut().left = node(1);
+        }
         if let Some(ref n) = n3 {
             n.borrow_mut().left = n2;
             n.borrow_mut().right = node(4);

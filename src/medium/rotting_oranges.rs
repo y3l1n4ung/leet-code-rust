@@ -26,19 +26,19 @@ mod tests {
 
     #[test]
     fn test_1() {
-        let grid = vec![vec![2,1,1],vec![1,1,0],vec![0,1,1]];
+        let grid = vec![vec![2, 1, 1], vec![1, 1, 0], vec![0, 1, 1]];
         assert_eq!(Solution::oranges_rotting(grid), 4);
     }
 
     #[test]
     fn test_2() {
-        let grid = vec![vec![2,1,1],vec![0,1,1],vec![1,0,1]];
+        let grid = vec![vec![2, 1, 1], vec![0, 1, 1], vec![1, 0, 1]];
         assert_eq!(Solution::oranges_rotting(grid), -1);
     }
 
     #[test]
     fn test_3() {
-        let grid = vec![vec![0,2]];
+        let grid = vec![vec![0, 2]];
         assert_eq!(Solution::oranges_rotting(grid), 0);
     }
 }

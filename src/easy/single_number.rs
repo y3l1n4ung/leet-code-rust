@@ -11,8 +11,7 @@
 struct Solution;
 
 impl Solution {
-    pub fn single_number( nums: Vec<i32>) -> i32 {
-        
+    pub fn single_number(nums: Vec<i32>) -> i32 {
         // In [14]: 2 ^ 2 ^ 1
         // Out[14]: 1
 
@@ -22,7 +21,7 @@ impl Solution {
         // In [16]: 2 ^ 2 ^ 1 ^ 4 ^ 4
         // Out[16]: 1
         let mut result = 0;
-        for i in nums{
+        for i in nums {
             result ^= i;
         }
         result

@@ -21,19 +21,19 @@ mod tests {
 
     #[test]
     fn test_1() {
-        let intervals = vec![vec![1,2],vec![2,3],vec![3,4],vec![1,3]];
+        let intervals = vec![vec![1, 2], vec![2, 3], vec![3, 4], vec![1, 3]];
         assert_eq!(Solution::erase_overlap_intervals(intervals), 1);
     }
 
     #[test]
     fn test_2() {
-        let intervals = vec![vec![1,2],vec![1,2],vec![1,2]];
+        let intervals = vec![vec![1, 2], vec![1, 2], vec![1, 2]];
         assert_eq!(Solution::erase_overlap_intervals(intervals), 2);
     }
 
     #[test]
     fn test_3() {
-        let intervals = vec![vec![1,2],vec![2,3]];
+        let intervals = vec![vec![1, 2], vec![2, 3]];
         assert_eq!(Solution::erase_overlap_intervals(intervals), 0);
     }
 }

@@ -1,6 +1,6 @@
 // DFS Traversal Practice 🦀
 
-use std::collections::{HashSet, HashMap};
+use std::collections::{HashMap, HashSet};
 
 pub struct Graph {
     pub adj: HashMap<i32, Vec<i32>>,
@@ -8,7 +8,9 @@ pub struct Graph {
 
 impl Graph {
     pub fn new() -> Self {
-        Self { adj: HashMap::new() }
+        Self {
+            adj: HashMap::new(),
+        }
     }
 
     pub fn add_edge(&mut self, u: i32, v: i32) {
@@ -29,13 +31,10 @@ impl Solution {
         result
     }
 
-    fn dfs_recursive(
-        graph: &Graph,
-        node: i32,
-        visited: &mut HashSet<i32>,
-        result: &mut Vec<i32>
-    ) {
-        if visited.contains(&node) { return; }
+    fn dfs_recursive(graph: &Graph, node: i32, visited: &mut HashSet<i32>, result: &mut Vec<i32>) {
+        if visited.contains(&node) {
+            return;
+        }
 
         visited.insert(node);
         result.push(node);
@@ -64,7 +63,7 @@ mod tests {
         graph.add_edge(3, 4);
 
         let result = Solution::dfs(&graph, 1);
-        
+
         // DFS starting at 1: [1, 2, 4, 3] or [1, 3, 4, 2]
         assert_eq!(result[0], 1);
         assert!(result.contains(&4));

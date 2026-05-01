@@ -3,7 +3,6 @@
 /// Topics: Hash Table, String, Design
 ///
 /// Link: https://leetcode.com/problems/design-underground-system/
-
 use std::collections::HashMap;
 
 pub struct UndergroundSystem {
@@ -42,12 +41,18 @@ mod tests {
         system.check_in(45, "Leyton".to_string(), 3);
         system.check_in(32, "Paradise".to_string(), 8);
         system.check_in(27, "Leyton".to_string(), 10);
-        
+
         system.check_out(45, "Waterloo".to_string(), 15);
         system.check_out(27, "Waterloo".to_string(), 20);
         system.check_out(32, "Cambridge".to_string(), 22);
-        
-        assert_eq!(system.get_average_time("Paradise".to_string(), "Cambridge".to_string()), 14.0);
-        assert_eq!(system.get_average_time("Leyton".to_string(), "Waterloo".to_string()), 11.0);
+
+        assert_eq!(
+            system.get_average_time("Paradise".to_string(), "Cambridge".to_string()),
+            14.0
+        );
+        assert_eq!(
+            system.get_average_time("Leyton".to_string(), "Waterloo".to_string()),
+            11.0
+        );
     }
 }

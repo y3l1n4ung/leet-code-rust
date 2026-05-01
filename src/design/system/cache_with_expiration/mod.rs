@@ -4,7 +4,6 @@
 ///
 /// Implement a cache that stores key-value pairs where each pair has an expiration time (TTL).
 /// After the TTL has passed, the key-value pair should be considered invalid and removed.
-
 use std::collections::HashMap;
 use std::time::{Duration, Instant};
 
@@ -44,9 +43,9 @@ mod tests {
     fn test_expirable_cache_basic() {
         let mut cache = ExpirableCache::new();
         cache.set("key1", "value1", Duration::from_millis(100));
-        
+
         assert_eq!(cache.get(&"key1"), Some(&"value1"));
-        
+
         thread::sleep(Duration::from_millis(150));
         assert_eq!(cache.get(&"key1"), None);
     }

@@ -10,18 +10,15 @@
 // Definition for singly-linked list.
 #[derive(PartialEq, Eq, Clone, Debug)]
 pub struct ListNode {
-  pub val: i32,
-  pub next: Option<Box<ListNode>>
+    pub val: i32,
+    pub next: Option<Box<ListNode>>,
 }
 
 impl ListNode {
-  #[inline]
-  fn new(val: i32) -> Self {
-    ListNode {
-      next: None,
-      val
+    #[inline]
+    fn new(val: i32) -> Self {
+        ListNode { next: None, val }
     }
-  }
 }
 
 struct Solution;
@@ -69,7 +66,10 @@ mod tests {
 
     #[test]
     fn test_2() {
-        assert_eq!(Solution::remove_nth_from_end(Some(Box::new(ListNode::new(1))), 1), None);
+        assert_eq!(
+            Solution::remove_nth_from_end(Some(Box::new(ListNode::new(1))), 1),
+            None
+        );
     }
 
     #[test]

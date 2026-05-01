@@ -3,7 +3,6 @@
 /// Tags: Hashing, Sharding, Scalability
 ///
 /// Link: https://bytebytego.com/courses/system-design-interview/consistent-hashing
-
 use std::collections::BTreeMap;
 use std::collections::hash_map::DefaultHasher;
 use std::hash::{Hash, Hasher};
@@ -71,11 +70,11 @@ mod tests {
         ring.add_node("node2");
 
         let original_node = ring.get_node("some_key").unwrap();
-        
+
         // Add a new node
         ring.add_node("node3");
         let current_node = ring.get_node("some_key").unwrap();
-        
+
         // The node should either be the same or the new one
         assert!(current_node == original_node || current_node == "node3");
     }

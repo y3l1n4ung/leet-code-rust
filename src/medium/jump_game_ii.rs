@@ -25,12 +25,12 @@ mod tests {
 
     #[test]
     fn test_1() {
-        assert_eq!(Solution::jump(vec![2,3,1,1,4]), 2);
+        assert_eq!(Solution::jump(vec![2, 3, 1, 1, 4]), 2);
     }
 
     #[test]
     fn test_2() {
-        assert_eq!(Solution::jump(vec![2,3,0,1,4]), 2);
+        assert_eq!(Solution::jump(vec![2, 3, 0, 1, 4]), 2);
     }
 
     #[test]

@@ -22,16 +22,25 @@ mod tests {
 
     #[test]
     fn test_1() {
-        assert_eq!(Solution::longest_common_subsequence("abcde".to_string(), "ace".to_string()), 3);
+        assert_eq!(
+            Solution::longest_common_subsequence("abcde".to_string(), "ace".to_string()),
+            3
+        );
     }
 
     #[test]
     fn test_2() {
-        assert_eq!(Solution::longest_common_subsequence("abc".to_string(), "abc".to_string()), 3);
+        assert_eq!(
+            Solution::longest_common_subsequence("abc".to_string(), "abc".to_string()),
+            3
+        );
     }
 
     #[test]
     fn test_3() {
-        assert_eq!(Solution::longest_common_subsequence("abc".to_string(), "def".to_string()), 0);
+        assert_eq!(
+            Solution::longest_common_subsequence("abc".to_string(), "def".to_string()),
+            0
+        );
     }
 }

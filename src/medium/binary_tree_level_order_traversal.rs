@@ -1,3 +1,4 @@
+use std::cell::RefCell;
 /// [102] Binary Tree Level Order Traversal
 /// Difficulty: Medium
 /// Topics: Tree, Breadth-First Search, Binary Tree
@@ -6,27 +7,25 @@
 /// Given the root of a binary tree, return the level order traversal of its nodes' values. (i.e., from left to right, level by level).
 ///
 /// Link: https://leetcode.com/problems/binary-tree-level-order-traversal/
-
 use std::rc::Rc;
-use std::cell::RefCell;
 
 // Definition for a binary tree node.
 #[derive(Debug, PartialEq, Eq)]
 pub struct TreeNode {
-  pub val: i32,
-  pub left: Option<Rc<RefCell<TreeNode>>>,
-  pub right: Option<Rc<RefCell<TreeNode>>>,
+    pub val: i32,
+    pub left: Option<Rc<RefCell<TreeNode>>>,
+    pub right: Option<Rc<RefCell<TreeNode>>>,
 }
 
 impl TreeNode {
-  #[inline]
-  pub fn new(val: i32) -> Self {
-    TreeNode {
-      val,
-      left: None,
-      right: None
+    #[inline]
+    pub fn new(val: i32) -> Self {
+        TreeNode {
+            val,
+            left: None,
+            right: None,
+        }
     }
-  }
 }
 
 struct Solution;
@@ -59,7 +58,10 @@ mod tests {
             r.borrow_mut().left = node(9);
             r.borrow_mut().right = n20;
         }
-        assert_eq!(Solution::level_order(root), vec![vec![3], vec![9, 20], vec![15, 7]]);
+        assert_eq!(
+            Solution::level_order(root),
+            vec![vec![3], vec![9, 20], vec![15, 7]]
+        );
     }
 
     #[test]

@@ -23,16 +23,16 @@ mod tests {
 
     #[test]
     fn test_1() {
-        let points = vec![vec![1,3],vec![-2,2]];
-        assert_eq!(Solution::k_closest(points, 1), vec![vec![-2,2]]);
+        let points = vec![vec![1, 3], vec![-2, 2]];
+        assert_eq!(Solution::k_closest(points, 1), vec![vec![-2, 2]]);
     }
 
     #[test]
     fn test_2() {
-        let points = vec![vec![3,3],vec![5,-1],vec![-2,4]];
+        let points = vec![vec![3, 3], vec![5, -1], vec![-2, 4]];
         let mut result = Solution::k_closest(points, 2);
         result.sort();
-        let mut expected = vec![vec![3,3],vec![-2,4]];
+        let mut expected = vec![vec![3, 3], vec![-2, 4]];
         expected.sort();
         assert_eq!(result, expected);
     }

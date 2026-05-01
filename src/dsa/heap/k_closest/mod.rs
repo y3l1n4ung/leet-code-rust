@@ -1,7 +1,7 @@
 // K Closest Points to Origin Practice 🦀
 
-use std::collections::BinaryHeap;
 use std::cmp::Ordering;
+use std::collections::BinaryHeap;
 
 #[derive(Eq, PartialEq)]
 struct Point {

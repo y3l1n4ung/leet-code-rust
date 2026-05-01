@@ -24,7 +24,13 @@ mod tests {
 
     #[test]
     fn test_1() {
-        let words = vec!["wrt".to_string(), "wrf".to_string(), "er".to_string(), "ett".to_string(), "rftt".to_string()];
+        let words = vec![
+            "wrt".to_string(),
+            "wrf".to_string(),
+            "er".to_string(),
+            "ett".to_string(),
+            "rftt".to_string(),
+        ];
         assert_eq!(Solution::alien_order(words), "wertf".to_string());
     }
 

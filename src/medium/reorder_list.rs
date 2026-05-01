@@ -14,18 +14,15 @@
 // Definition for singly-linked list.
 #[derive(PartialEq, Eq, Clone, Debug)]
 pub struct ListNode {
-  pub val: i32,
-  pub next: Option<Box<ListNode>>
+    pub val: i32,
+    pub next: Option<Box<ListNode>>,
 }
 
 impl ListNode {
-  #[inline]
-  fn new(val: i32) -> Self {
-    ListNode {
-      next: None,
-      val
+    #[inline]
+    fn new(val: i32) -> Self {
+        ListNode { next: None, val }
     }
-  }
 }
 
 struct Solution;
@@ -55,7 +52,7 @@ mod tests {
             })),
         }));
         Solution::reorder_list(&mut head);
-        
+
         let expected = Some(Box::new(ListNode {
             val: 1,
             next: Some(Box::new(ListNode {

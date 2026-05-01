@@ -3,7 +3,6 @@
 /// Tags: Trie, TopK, Suggestion
 ///
 /// Link: https://bytebytego.com/courses/system-design-interview/design-search-autocomplete-system
-
 use std::collections::HashMap;
 
 #[derive(Default)]
@@ -31,7 +30,9 @@ impl AutocompleteSystem {
 
     /// Returns the top k suggestions for the given prefix
     pub fn get_suggestions(&self, prefix: &str, k: usize) -> Vec<String> {
-        todo!("Traverse to the prefix node, collect all reachable terms, and return the top k by frequency")
+        todo!(
+            "Traverse to the prefix node, collect all reachable terms, and return the top k by frequency"
+        )
     }
 }
 
@@ -59,7 +60,7 @@ mod tests {
     fn test_autocomplete_prefix_not_found() {
         let mut system = AutocompleteSystem::new();
         system.insert("rust".to_string(), 100);
-        
+
         let suggestions = system.get_suggestions("go", 5);
         assert!(suggestions.is_empty());
     }
@@ -70,7 +71,7 @@ mod tests {
         system.insert("a1".to_string(), 10);
         system.insert("a2".to_string(), 20);
         system.insert("a3".to_string(), 30);
-        
+
         let suggestions = system.get_suggestions("a", 2);
         assert_eq!(suggestions.len(), 2);
         assert_eq!(suggestions[0], "a3");

@@ -8,16 +8,13 @@
 /// Link: https://leetcode.com/problems/encode-and-decode-strings/ (Premium)
 /// Free Link: https://lintcode.com/problem/659/
 
-
 struct Solution;
 
 impl Solution {
-    
     pub fn encode(strs: Vec<String>) -> String {
         todo!()
     }
 
-    
     pub fn decode(s: String) -> Vec<String> {
         todo!()
     }
@@ -29,14 +26,24 @@ mod tests {
 
     #[test]
     fn test_1() {
-        let input = vec!["lint".to_string(), "code".to_string(), "love".to_string(), "you".to_string()];
+        let input = vec![
+            "lint".to_string(),
+            "code".to_string(),
+            "love".to_string(),
+            "you".to_string(),
+        ];
         let encoded = Solution::encode(input.clone());
         assert_eq!(Solution::decode(encoded), input);
     }
 
     #[test]
     fn test_2() {
-        let input = vec!["we".to_string(), "say".to_string(), ":".to_string(), "yes".to_string()];
+        let input = vec![
+            "we".to_string(),
+            "say".to_string(),
+            ":".to_string(),
+            "yes".to_string(),
+        ];
         let encoded = Solution::encode(input.clone());
         assert_eq!(Solution::decode(encoded), input);
     }

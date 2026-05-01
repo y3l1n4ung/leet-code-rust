@@ -15,15 +15,15 @@ impl Skiplist {
     pub fn new() -> Self {
         todo!("Initialize the skiplist")
     }
-    
+
     pub fn search(&self, target: i32) -> bool {
         todo!("Search for a target in the skiplist")
     }
-    
+
     pub fn add(&mut self, num: i32) {
         todo!("Add a number to the skiplist")
     }
-    
+
     pub fn erase(&mut self, num: i32) -> bool {
         todo!("Erase a number from the skiplist")
     }
@@ -40,10 +40,10 @@ mod tests {
         skiplist.add(2);
         skiplist.add(3);
         assert_eq!(skiplist.search(0), false);
-        
+
         skiplist.add(4);
         assert_eq!(skiplist.search(1), true);
-        
+
         assert_eq!(skiplist.erase(0), false);
         assert_eq!(skiplist.erase(1), true);
         assert_eq!(skiplist.search(1), false);

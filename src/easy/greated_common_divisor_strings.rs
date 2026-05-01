@@ -24,7 +24,7 @@ impl Solution {
         fn gcd(a: usize, b: usize) -> usize {
             if b == 0 { a } else { gcd(b, a % b) }
         }
-        let gcd_len= gcd(str1.len(), str2.len());
+        let gcd_len = gcd(str1.len(), str2.len());
 
         str1[..gcd_len].to_string()
     }

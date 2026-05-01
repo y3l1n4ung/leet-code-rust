@@ -24,7 +24,7 @@ impl Solution {
                 } else {
                     left = mid + 1;
                 }
-            } 
+            }
             // Right part is sorted
             else {
                 if nums[m] < target && target <= nums[right as usize] {

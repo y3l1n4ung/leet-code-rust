@@ -24,22 +24,22 @@ mod tests {
 
     #[test]
     fn test_1() {
-        let image = vec![vec![1,1,1],vec![1,1,0],vec![1,0,1]];
-        let expected = vec![vec![2,2,2],vec![2,2,0],vec![2,0,1]];
+        let image = vec![vec![1, 1, 1], vec![1, 1, 0], vec![1, 0, 1]];
+        let expected = vec![vec![2, 2, 2], vec![2, 2, 0], vec![2, 0, 1]];
         assert_eq!(Solution::flood_fill(image, 1, 1, 2), expected);
     }
 
     #[test]
     fn test_2() {
-        let image = vec![vec![0,0,0],vec![0,0,0]];
-        let expected = vec![vec![0,0,0],vec![0,0,0]];
+        let image = vec![vec![0, 0, 0], vec![0, 0, 0]];
+        let expected = vec![vec![0, 0, 0], vec![0, 0, 0]];
         assert_eq!(Solution::flood_fill(image, 0, 0, 0), expected);
     }
 
     #[test]
     fn test_3() {
-        let image = vec![vec![0,0,0],vec![0,1,1]];
-        let expected = vec![vec![0,0,0],vec![0,2,2]];
+        let image = vec![vec![0, 0, 0], vec![0, 1, 1]];
+        let expected = vec![vec![0, 0, 0], vec![0, 2, 2]];
         assert_eq!(Solution::flood_fill(image, 1, 1, 2), expected);
     }
 }

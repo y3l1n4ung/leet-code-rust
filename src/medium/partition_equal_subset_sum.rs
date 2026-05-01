@@ -21,16 +21,16 @@ mod tests {
 
     #[test]
     fn test_1() {
-        assert_eq!(Solution::can_partition(vec![1,5,11,5]), true);
+        assert_eq!(Solution::can_partition(vec![1, 5, 11, 5]), true);
     }
 
     #[test]
     fn test_2() {
-        assert_eq!(Solution::can_partition(vec![1,2,3,5]), false);
+        assert_eq!(Solution::can_partition(vec![1, 2, 3, 5]), false);
     }
 
     #[test]
     fn test_3() {
-        assert_eq!(Solution::can_partition(vec![1,1]), true);
+        assert_eq!(Solution::can_partition(vec![1, 1]), true);
     }
 }

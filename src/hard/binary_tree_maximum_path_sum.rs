@@ -1,3 +1,4 @@
+use std::cell::RefCell;
 /// [124] Binary Tree Maximum Path Sum
 /// Difficulty: Hard
 /// Topics: Dynamic Programming, Tree, Depth-First Search, Binary Tree
@@ -8,27 +9,25 @@
 /// Given the root of a binary tree, return the maximum path sum of any non-empty path.
 ///
 /// Link: https://leetcode.com/problems/binary-tree-maximum-path-sum/
-
 use std::rc::Rc;
-use std::cell::RefCell;
 
 // Definition for a binary tree node.
 #[derive(Debug, PartialEq, Eq)]
 pub struct TreeNode {
-  pub val: i32,
-  pub left: Option<Rc<RefCell<TreeNode>>>,
-  pub right: Option<Rc<RefCell<TreeNode>>>,
+    pub val: i32,
+    pub left: Option<Rc<RefCell<TreeNode>>>,
+    pub right: Option<Rc<RefCell<TreeNode>>>,
 }
 
 impl TreeNode {
-  #[inline]
-  pub fn new(val: i32) -> Self {
-    TreeNode {
-      val,
-      left: None,
-      right: None
+    #[inline]
+    pub fn new(val: i32) -> Self {
+        TreeNode {
+            val,
+            left: None,
+            right: None,
+        }
     }
-  }
 }
 
 struct Solution;

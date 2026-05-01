@@ -40,6 +40,9 @@ mod tests {
 
     #[test]
     fn test_3() {
-        assert_eq!(Solution::combination_sum(vec![2], 1), Vec::<Vec<i32>>::new());
+        assert_eq!(
+            Solution::combination_sum(vec![2], 1),
+            Vec::<Vec<i32>>::new()
+        );
     }
 }

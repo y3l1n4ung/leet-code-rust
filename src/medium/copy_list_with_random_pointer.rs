@@ -15,7 +15,9 @@ struct Solution;
 
 impl Solution {
     pub fn copy_random_list() {
-        todo!("This problem usually uses a different signature in Rust on LeetCode due to ownership")
+        todo!(
+            "This problem usually uses a different signature in Rust on LeetCode due to ownership"
+        )
     }
 }
 

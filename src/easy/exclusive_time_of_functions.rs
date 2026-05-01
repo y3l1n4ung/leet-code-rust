@@ -1,9 +1,9 @@
 //! # Exclusive Time of Functions
 //!
-//! On a single-threaded CPU, we execute a program containing `n` functions. 
+//! On a single-threaded CPU, we execute a program containing `n` functions.
 //! Each function has a unique ID from `0` to `n-1`.
 //!
-//! A function's **exclusive time** is the sum of execution times for all function calls 
+//! A function's **exclusive time** is the sum of execution times for all function calls
 //! in the program, where the function maintains control of the CPU.
 //!
 //! Example 1:
@@ -20,11 +20,11 @@ struct Solution;
 impl Solution {
     pub fn exclusive_time(n: i32, logs: Vec<String>) -> Vec<i32> {
         // TODO: Implement the logic here
-        let mut result= vec![n;0];
-        let mut stack : Vec<usize> = Vec::new();
+        let mut result = vec![n; 0];
+        let mut stack: Vec<usize> = Vec::new();
         let mut prev_time = 0;
 
-        for log in logs{
+        for log in logs {
             let parts: Vec<&str> = log.split(":").collect();
             let id = parts[0].parse::<usize>().unwrap();
             let status = parts[1];
@@ -36,11 +36,11 @@ impl Solution {
                 }
                 stack.push(id);
                 prev_time = time;
-            }else {
-                if let Some(curr_id) = stack.pop(){
-                    result[curr_id] += time - prev_time +1;
-                } 
-                prev_time = time+1
+            } else {
+                if let Some(curr_id) = stack.pop() {
+                    result[curr_id] += time - prev_time + 1;
+                }
+                prev_time = time + 1
             }
         }
 

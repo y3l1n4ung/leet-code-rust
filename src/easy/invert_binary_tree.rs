@@ -1,3 +1,4 @@
+use std::cell::RefCell;
 /// [226] Invert Binary Tree
 /// Difficulty: Easy
 /// Topics: Tree, Depth-First Search, Breadth-First Search, Binary Tree
@@ -6,27 +7,25 @@
 /// Given the root of a binary tree, invert the tree, and return its root.
 ///
 /// Link: https://leetcode.com/problems/invert-binary-tree/
-
 use std::rc::Rc;
-use std::cell::RefCell;
 
 // Definition for a binary tree node.
 #[derive(Debug, PartialEq, Eq)]
 pub struct TreeNode {
-  pub val: i32,
-  pub left: Option<Rc<RefCell<TreeNode>>>,
-  pub right: Option<Rc<RefCell<TreeNode>>>,
+    pub val: i32,
+    pub left: Option<Rc<RefCell<TreeNode>>>,
+    pub right: Option<Rc<RefCell<TreeNode>>>,
 }
 
 impl TreeNode {
-  #[inline]
-  pub fn new(val: i32) -> Self {
-    TreeNode {
-      val,
-      left: None,
-      right: None
+    #[inline]
+    pub fn new(val: i32) -> Self {
+        TreeNode {
+            val,
+            left: None,
+            right: None,
+        }
     }
-  }
 }
 
 struct Solution;
@@ -71,7 +70,7 @@ mod tests {
         }
 
         let inverted = Solution::invert_tree(root);
-        
+
         // Manual verification of a few nodes
         if let Some(r) = inverted {
             let r_borrow = r.borrow();

@@ -1,7 +1,7 @@
 //! # 1768. Merge Strings Alternately
-//! 
-//! You are given two strings `word1` and `word2`. 
-//! Merge the strings by adding letters in alternating order, starting with `word1`. 
+//!
+//! You are given two strings `word1` and `word2`.
+//! Merge the strings by adding letters in alternating order, starting with `word1`.
 //! If a string is longer than the other, append the additional letters onto the end of the merged string.
 //!
 //! Example 1:
@@ -18,9 +18,7 @@ struct Solution;
 
 impl Solution {
     pub fn merge_alternately(word1: String, word2: String) -> String {
-
         let mut result = String::with_capacity(word1.len() + word2.len());
-
 
         let mut chars1 = word1.chars();
         let mut chars2 = word2.chars();
@@ -31,11 +29,10 @@ impl Solution {
             if char1.is_none() && char2.is_none() {
                 break;
             }
-            if let Some(ch) =char1{
-
+            if let Some(ch) = char1 {
                 result.push(ch);
-            } 
-            if let Some(ch) =char2  {
+            }
+            if let Some(ch) = char2 {
                 result.push(ch);
             }
         }

@@ -3,7 +3,6 @@
 /// Tags: TokenBucket, LeakyBucket, FixedWindow
 ///
 /// Link: https://bytebytego.com/courses/system-design-interview/design-a-rate-limiter
-
 use std::collections::HashMap;
 use std::time::{Duration, Instant};
 
@@ -63,7 +62,7 @@ mod tests {
     fn test_token_bucket_basic() {
         // Note: This test will fail until you implement allow_request and refill
         let mut limiter = RateLimiter::new(2.0, 100.0); // High refill rate for testing
-        
+
         assert!(limiter.allow_request("client1"));
         assert!(limiter.allow_request("client1"));
         assert!(!limiter.allow_request("client1"));
@@ -72,10 +71,10 @@ mod tests {
     #[test]
     fn test_multi_client() {
         let mut limiter = RateLimiter::new(1.0, 1.0);
-        
+
         assert!(limiter.allow_request("client1"));
         assert!(limiter.allow_request("client2"));
-        
+
         assert!(!limiter.allow_request("client1"));
         assert!(!limiter.allow_request("client2"));
     }

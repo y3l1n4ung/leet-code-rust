@@ -3,7 +3,6 @@
 /// Topics: Hash Table, Linked List, Design
 ///
 /// Link: https://leetcode.com/problems/lfu-cache/
-
 use std::collections::{HashMap, VecDeque};
 
 pub struct LFUCache {
@@ -35,11 +34,11 @@ mod tests {
         lfu.put(1, 1);
         lfu.put(2, 2);
         assert_eq!(lfu.get(1), 1);
-        
+
         lfu.put(3, 3); // evicts key 2
         assert_eq!(lfu.get(2), -1);
         assert_eq!(lfu.get(3), 3);
-        
+
         lfu.put(4, 4); // evicts key 1
         assert_eq!(lfu.get(1), -1);
         assert_eq!(lfu.get(3), 3);

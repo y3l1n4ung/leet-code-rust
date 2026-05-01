@@ -38,11 +38,11 @@ mod tests {
         history.visit("google.com".to_string());
         history.visit("facebook.com".to_string());
         history.visit("youtube.com".to_string());
-        
+
         assert_eq!(history.back(1), "facebook.com");
         assert_eq!(history.back(1), "google.com");
         assert_eq!(history.forward(1), "facebook.com");
-        
+
         history.visit("linkedin.com".to_string()); // google.com -> facebook.com -> linkedin.com (youtube.com is cleared)
         assert_eq!(history.forward(2), "linkedin.com"); // can't go forward
         assert_eq!(history.back(2), "google.com");

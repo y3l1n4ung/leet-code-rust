@@ -22,19 +22,19 @@ mod tests {
 
     #[test]
     fn test_1() {
-        let flights = vec![vec![0,1,100],vec![1,2,100],vec![0,2,500]];
+        let flights = vec![vec![0, 1, 100], vec![1, 2, 100], vec![0, 2, 500]];
         assert_eq!(Solution::find_cheapest_price(3, flights, 0, 2, 1), 200);
     }
 
     #[test]
     fn test_2() {
-        let flights = vec![vec![0,1,100],vec![1,2,100],vec![0,2,500]];
+        let flights = vec![vec![0, 1, 100], vec![1, 2, 100], vec![0, 2, 500]];
         assert_eq!(Solution::find_cheapest_price(3, flights, 0, 2, 0), 500);
     }
 
     #[test]
     fn test_3() {
-        let flights = vec![vec![0,1,100]];
+        let flights = vec![vec![0, 1, 100]];
         assert_eq!(Solution::find_cheapest_price(2, flights, 0, 1, 1), 100);
     }
 }
