@@ -95,3 +95,4 @@ pub mod validate_binary_search_tree;
 pub mod walls_and_gates;
 pub mod word_break;
 pub mod word_search;
+pub mod reverse_words_in_a_string;
