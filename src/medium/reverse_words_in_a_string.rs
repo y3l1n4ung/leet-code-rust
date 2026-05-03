@@ -37,7 +37,7 @@ struct Solution;
 
 impl Solution {
     pub fn reverse_words(s: String) -> String {
-       s.split_whitespace().rev().collect::<Vec<&str>>().join("")
+        s.split_whitespace().rev().collect::<Vec<&str>>().join("")
     }
 }
 
@@ -69,7 +69,7 @@ mod tests {
         );
     }
     #[test]
-    fn test_example_4(){
+    fn test_example_4() {
         assert_eq!(
             Solution::reverse_words("a      Tt98F8cl       2ZqzzN      9ScQuGTD       4zF18c   U5wrw62z    KV1 q     WK1Asi       S4hiKPi2Y  l      XZCvURMnY  I3   llmjK3AVT F    eaiDa     N6Rc 8QOxU P0ieWh ta".to_string()),
             "ta P0ieWh 8QOxU N6Rc eaiDa F llmjK3AVT I3 XZCvURMnY l S4hiKPi2Y WK1Asi q KV1 U5wrw62z 4zF18c 9ScQuGTD 2ZqzzN Tt98F8cl a".to_string()
