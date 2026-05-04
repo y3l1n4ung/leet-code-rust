@@ -1,13 +1,33 @@
-/// [206] Reverse Linked List
-/// Difficulty: Easy
-/// Topics: Linked List, Recursion
-/// Tags: Blind75, NeetCode150
-///
-/// Given the head of a singly linked list, reverse the list, and return the reversed list.
-///
-/// Link: https://leetcode.com/problems/reverse-linked-list/
+//! # 206. Reverse Linked List
+//! 
+//! Given the `head` of a singly linked list, reverse the list, and return the reversed list.
+//! 
+//! ### Example 1:
+//! **Input:** `head = [1,2,3,4,5]`
+//! **Output:** `[5,4,3,2,1]`
+//! 
+//! ### Example 2:
+//! **Input:** `head = [1,2]`
+//! **Output:** `[2,1]`
+//! 
+//! ### Example 3:
+//! **Input:** `head = []`
+//! **Output:** `[]`
+//! 
+//! ### Constraints:
+//! * The number of nodes in the list is the range `[0, 5000]`.
+//! * `-5000 <= Node.val <= 5000`
+//! 
+//! ---
+//!
+//! ### Myanmar Explanation
+//! Singly Linked List တစ်ခုကို ပြောင်းပြန် (Reverse) ပြန်လှန်ခိုင်းတာ ဖြစ်ပါတယ်။
+//! 
+//! **စဉ်းစားပုံ အဆင့်ဆင့်:**
+//! ၁။ လက်ရှိ node (`curr`) ရဲ့ pointer ကို နောက်က node ဆီ မညွှန်ခိုင်းတော့ဘဲ သူ့ရဲ့ အရှေ့က node (`prev`) ဆီကို ပြန်ညွှန်ခိုင်းရပါမယ်။
+//! ၂။ ဒါပေမဲ့ pointer ကို ဖြတ်လိုက်ရင် နောက်က node တွေနဲ့ အဆက်အသွယ် ပြတ်သွားမှာ ဖြစ်တဲ့အတွက် `next` node ကို temporary သိမ်းထားဖို့ လိုပါတယ်။
+//! ၃။ Loop တစ်ခုပတ်ပြီး တစ်ဆင့်ချင်းစီ pointer လှန်သွားရင်း နောက်ဆုံး node ရောက်တဲ့အခါ အဲ့ဒီ node ဟာ reverse ဖြစ်သွားတဲ့ list ရဲ့ head အသစ် ဖြစ်လာပါလိမ့်မယ်။
 
-// Definition for singly-linked list.
 #[derive(PartialEq, Eq, Clone, Debug)]
 pub struct ListNode {
     pub val: i32,
@@ -24,18 +44,15 @@ impl ListNode {
 struct Solution;
 
 impl Solution {
-    pub fn reverse_list(head: Option<Box<ListNode>>) -> Option<Box<ListNode>> {
-        let mut prev: Option<Box<ListNode>> = None;
-        let mut curr = head;
-
-        while let Some(mut node) = curr {
-            let next = node.next.take();
-            node.next = prev;
-            prev = Some(node);
-            curr = next;
-        }
-
-        prev
+    pub fn reverse_list(mut head: Option<Box<ListNode>>) -> Option<Box<ListNode>> {
+      let mut prev_node:Option<Box<ListNode>> = None;
+       while head.is_some() {
+        let mut node =head.take().unwrap();
+        head = node.next;
+        node.next = prev_node;
+        prev_node =  Some(node); 
+      }
+      prev_node
     }
 }
 
