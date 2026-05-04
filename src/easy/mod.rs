@@ -45,3 +45,4 @@ pub mod valid_anagram;
 pub mod valid_palindrome;
 pub mod valid_parentheses;
 pub mod is_subsequence;
+pub mod maximum_average_subarray;
