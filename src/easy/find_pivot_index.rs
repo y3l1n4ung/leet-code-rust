@@ -1,0 +1,99 @@
+//! # 724. Find Pivot Index
+//! 
+//! Given an array of integers `nums`, calculate the **pivot index** of this array.
+//! 
+//! The **pivot index** is the index where the sum of all the numbers **strictly** to the left of the index is equal to the sum of all the numbers **strictly** to the index's right.
+//! 
+//! If the index is on the left edge of the array, then the left sum is `0` because there are no elements to the left. This also applies to the right edge of the array.
+//! 
+//! Return the **leftmost pivot index**. If no such index exists, return `-1`.
+//! 
+//! ### Example 1:
+//! **Input:** `nums = [1,7,3,6,5,6]`
+//! **Output:** `3`
+//! **Explanation:**
+//! The pivot index is 3.
+//! Left sum = `nums[0] + nums[1] + nums[2] = 1 + 7 + 3 = 11`
+//! Right sum = `nums[4] + nums[5] = 5 + 6 = 11`
+//! 
+//! ### Example 2:
+//! **Input:** `nums = [1,2,3]`
+//! **Output:** `-1`
+//! **Explanation:**
+//! There is no index that satisfies the conditions in the problem statement.
+//! 
+//! ### Example 3:
+//! **Input:** `nums = [2,1,-1]`
+//! **Output:** `0`
+//! **Explanation:**
+//! The pivot index is 0.
+//! Left sum = `0` (no elements to the left of index 0)
+//! Right sum = `nums[1] + nums[2] = 1 + -1 = 0`
+//! 
+//! ### Constraints:
+//! * `1 <= nums.length <= 10^4`
+//! * `-1000 <= nums[i] <= 1000`
+//! 
+//! ---
+//! 
+//! ### Myanmar Explanation
+//! ဒီပုစ္ဆာက Pivot Index လို့ခေါ်တဲ့ အမှတ်တစ်ခုကို ရှာခိုင်းတာပါ။
+//! Pivot Index ဆိုတာက အဲ့ဒီ index ရဲ့ ဘယ်ဘက်ခြမ်းမှာရှိတဲ့ ကိန်းတွေအားလုံးပေါင်းလဒ်နဲ့ ညာဘက်ခြမ်းမှာရှိတဲ့ ကိန်းတွေအားလုံးပေါင်းလဒ် တူညီနေတဲ့နေရာကို ပြောတာဖြစ်ပါတယ်။
+//! 
+//! **မှတ်သားရန်အချက်များ:**
+//! ၁။ အကယ်၍ index က အစွန်းဆုံး (0) မှာရှိရင် သူ့ရဲ့ ဘယ်ဘက်မှာ ဘာမှမရှိတဲ့အတွက် Left Sum ကို `0` လို့ ယူဆပါတယ်။ ညာဘက်အစွန်းအတွက်လည်း ထိုနည်း၎င်းပါပဲ။
+//! ၂။ အဖြေတစ်ခုထက်မက ရှိနေခဲ့ရင် အငယ်ဆုံး (ဘယ်ဘက်အကျဆုံး) index ကိုပဲ အဖြေအဖြစ် ထုတ်ပေးရပါမယ်။
+//! ၃။ ကိုက်ညီတဲ့ အဖြေမရှိရင် `-1` လို့ ပြန်ပေးရပါမယ်။
+
+struct Solution;
+
+impl Solution {
+    pub fn pivot_index(nums: Vec<i32>) -> i32 {
+        let total_sum:i32 = nums.iter().sum();
+        let mut curr_lsum = 0;
+
+        for i in 0..nums.len(){
+            // [2,1,-1]
+            // t = 3 , c = 0 - ni = 2 so rs = 2
+            let right_sum = total_sum - curr_lsum - nums[i];
+            if curr_lsum == right_sum{
+                return  i as i32;
+            }
+            curr_lsum += nums[i];
+
+        }
+        -1
+
+    }
+}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn test_example_1() {
+        assert_eq!(Solution::pivot_index(vec![1, 7, 3, 6, 5, 6]), 3);
+    }
+
+    #[test]
+    fn test_example_2() {
+        assert_eq!(Solution::pivot_index(vec![1, 2, 3]), -1);
+    }
+
+    #[test]
+    fn test_example_3() {
+        assert_eq!(Solution::pivot_index(vec![2, 1, -1]), 0);
+    }
+
+    #[test]
+    fn test_all_zeros() {
+        assert_eq!(Solution::pivot_index(vec![0, 0, 0, 0]), 0);
+    }
+
+    #[test]
+    fn test_single_element() {
+        assert_eq!(Solution::pivot_index(vec![1]), 0);
+    }
+
+}
