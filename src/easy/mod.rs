@@ -49,3 +49,4 @@ pub mod maximum_average_subarray;
 pub mod find_the_highest_altitue;
 pub mod find_pivot_index;
 pub mod find_difference_of_two_arrays;
+pub mod find_unique_occurrences;
